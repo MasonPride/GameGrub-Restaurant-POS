@@ -7,6 +7,10 @@ Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
 from typing import List
+from src.gamegrub.data.enums.Base import Base
+from src.gamegrub.data.enums.Size import Size
+from src.gamegrub.data.enums.Toppings import Toppings
+from src.gamegrub.data.entrees.ClueChili import ClueChili
 
 
 class HelloWorld:
@@ -28,3 +32,7 @@ class HelloWorld:
             print("Hello {}".format(args[1]))
         else:
             print("Hello World")
+
+        entree: ClueChili = ClueChili()
+        print(entree)
+        
