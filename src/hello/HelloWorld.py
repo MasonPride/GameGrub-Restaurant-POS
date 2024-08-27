@@ -10,7 +10,7 @@ from typing import List
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Size import Size
 from src.gamegrub.data.enums.Toppings import Toppings
-from src.gamegrub.data.entrees.ClueChili import ClueChili
+from src.gamegrub.data.entrees.Clue import ClueChili
 
 
 class HelloWorld:
@@ -35,4 +35,6 @@ class HelloWorld:
 
         entree: ClueChili = ClueChili()
         print(entree)
-        
+        print(entree.price)
+        entree.base: Base = Base.CHIPS
+        print(entree.price)

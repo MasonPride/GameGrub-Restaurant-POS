@@ -1,3 +1,12 @@
+"""ClueChili class
+
+This is a class that creates the Clue Chili
+menu item.
+
+Author: Mason Pride mtpride@ksu.edu
+Version: 0.1
+"""
+
 from typing import List, Set
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Size import Size
@@ -9,6 +18,7 @@ class ClueChili:
     def __init__(self) -> None:
         self.__base: Base = Base.SPAGHETTI
         self.__toppings: Set[Toppings] = {Toppings.ONIONS, Toppings.CHEESE, Toppings.HOT_SAUCE}
+        self.__price: float = 8.95 
         self.__spicy_beef: bool = True
         self.__chili: bool = True
         self.__red_sauce: bool = True
@@ -34,7 +44,7 @@ class ClueChili:
 
     @property
     def price(self) -> float:
-        return 10.45
+        return self.__price + self.__base.amount
 
     @property
     def calories(self) -> int:
