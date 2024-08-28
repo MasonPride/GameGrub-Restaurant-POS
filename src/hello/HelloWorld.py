@@ -11,6 +11,12 @@ from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Size import Size
 from src.gamegrub.data.enums.Toppings import Toppings
 from src.gamegrub.data.entrees.Clue import ClueChili
+from src.gamegrub.data.entrees.Jenga import JengaNachos
+from src.gamegrub.data.entrees.Yahtzee import YahtzeePoke
+from src.gamegrub.data.entrees.Chess import ChessChickenParm
+from src.gamegrub.data.entrees.Monopoly import MonopolyBowl
+
+
 
 
 class HelloWorld:
@@ -33,8 +39,63 @@ class HelloWorld:
         else:
             print("Hello World")
 
-        entree: ClueChili = ClueChili()
+        entree: MonopolyBowl = MonopolyBowl()
+        print("    Standard entree:")
         print(entree)
         print(entree.price)
-        entree.base: Base = Base.CHIPS
+
+        print("\n   Change Base: ")
+        entree.base = Base.SPAGHETTI
         print(entree.price)
+
+        print("\n   Entree Toppings: ")
+        print(entree.toppings)
+
+        print("\n   Add Topping: ")
+        entree.add_topping(Toppings.SOY_SAUCE)
+        print(entree.toppings)
+
+        print("\n   Remove Topping: ")
+        entree.remove_topping(Toppings.ONIONS)
+        print(entree.toppings)
+
+        print("\n   Calories: ")
+        print(entree.calories)
+
+        
+        print("\n   Spicy Beef Status: ")
+        print(entree.spicy_beef)
+
+        """
+        print("\n   Chili Status: ")
+        print(entree.chili)
+        
+        print("\n   Red Sauce Status: ")
+        print(entree.red_sauce)
+        """
+        print("\n   Beans Status: ")
+        print(entree.beans)
+        """
+        print("\n   Tuna Status: ")
+        print(entree.tuna)
+        """
+        print("\n   Veggies: ")
+        print(entree.veggies)
+        """
+        print("\n   Seaweed Status: ")
+        print(entree.seaweed)
+        """
+
+        print("\n   Cripsy Chicken Status: ")
+        print(entree.crispy_chicken)
+
+        print("\n   Special instructions: ")
+        print(entree.instructions)
+
+        print("\n   Remove all ingredients lol: ")
+        entree.spicy_beef = False
+        entree.beans
+        entree.crispy_chicken =False
+        entree.veggies = False
+        print(entree.instructions)
+

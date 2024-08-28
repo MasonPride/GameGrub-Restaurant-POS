@@ -1,6 +1,6 @@
-"""ClueChili class
+"""MonopolyBowl class
 
-This is a class that creates the Clue Chili
+This is a class that creates the Monopoly Bowl
 menu item.
 
 Author: Mason Pride mtpride@ksu.edu
@@ -12,15 +12,16 @@ from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 
 
-class ClueChili:
+class MonopolyBowl:
 
     def __init__(self) -> None:
-        self.__base: Base = Base.SPAGHETTI
-        self.__toppings: Set[Toppings] = {Toppings.ONIONS, Toppings.CHEESE, Toppings.HOT_SAUCE}
-        self.__price: float = 8.95 
+        self.__base: Base = Base.RICE
+        self.__toppings: Set[Toppings] = {Toppings.ONIONS, Toppings.CHEESE, Toppings.HOT_SAUCE,
+                                        Toppings.SOUR_CREAM, Toppings.GUACAMOLE, Toppings.CRISPY_STRIPS}
+        self.__price: float = 17.65 
         self.__spicy_beef: bool = True
-        self.__chili: bool = True
-        self.__red_sauce: bool = True
+        self.__veggies: bool = True
+        self.__crispy_chicken: bool = True
         self.__beans: bool = True
 
     @property
@@ -48,7 +49,7 @@ class ClueChili:
 
     @property
     def calories(self) -> int:
-        return 1165
+        return 1685
 
     @property
     def spicy_beef(self) -> bool:
@@ -59,20 +60,20 @@ class ClueChili:
         self.__spicy_beef = value
 
     @property
-    def chili(self) -> bool:
-        return self.__chili
+    def veggies(self) -> bool:
+        return self.__veggies
 
-    @chili.setter
-    def chili(self, value: bool) -> None:
-        self.__chili = value
+    @veggies.setter
+    def veggies(self, value: bool) -> None:
+        self.__veggies = value
 
     @property
-    def red_sauce(self) -> bool:
-        return self.__red_sauce
+    def crispy_chicken(self) -> bool:
+        return self.__crispy_chicken
 
-    @red_sauce.setter
-    def red_sauce(self, value: bool) -> None:
-        self.__red_sauce = value
+    @crispy_chicken.setter
+    def crispy_chicken(self, value: bool) -> None:
+        self.__crispy_chicken = value
 
     @property
     def beans(self) -> bool:
@@ -87,10 +88,10 @@ class ClueChili:
         ingredients: List[str] = []
         if not self.__spicy_beef:
             ingredients.append("Hold Spicy Beef")
-        if not self.__chili:
-            ingredients.append("Hold Chili")
-        if not self.__red_sauce:
-            ingredients.append("Hold Red Sauce")
+        if not self.__crispy_chicken:
+            ingredients.append("Hold Crispy Chicken")
+        if not self.__veggies:
+            ingredients.append("Hold Veggies")
         if not self.__beans:
             ingredients.append("Hold Beans")
         return ingredients.copy()
@@ -103,8 +104,8 @@ class ClueChili:
             return (self.__base == value.base and 
                     self.__toppings == value.toppings and
                     self.__spicy_beef == value.spicy_beef and 
-                    self.__chili == value.chili and 
-                    self.__red_sauce == value.red_sauce and
+                    self.__crispy_chicken == value.crispy_chicken and 
+                    self.__veggies == value.veggies and
                     self.__beans == value.beans)
         else:
             return False

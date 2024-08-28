@@ -1,6 +1,6 @@
-"""ClueChili class
+"""ChessChickenParm class
 
-This is a class that creates the Clue Chili
+This is a class that creates the Chess Chicken Parm
 menu item.
 
 Author: Mason Pride mtpride@ksu.edu
@@ -12,16 +12,14 @@ from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 
 
-class ClueChili:
+class ChessChickenParm:
 
     def __init__(self) -> None:
         self.__base: Base = Base.SPAGHETTI
-        self.__toppings: Set[Toppings] = {Toppings.ONIONS, Toppings.CHEESE, Toppings.HOT_SAUCE}
-        self.__price: float = 8.95 
-        self.__spicy_beef: bool = True
-        self.__chili: bool = True
+        self.__toppings: Set[Toppings] = {Toppings.CHEESE, Toppings.FRESH_HERBS}
+        self.__price: float = 12.15
         self.__red_sauce: bool = True
-        self.__beans: bool = True
+        self.__crispy_chicken: bool = True
 
     @property
     def base(self) -> Base:
@@ -48,23 +46,7 @@ class ClueChili:
 
     @property
     def calories(self) -> int:
-        return 1165
-
-    @property
-    def spicy_beef(self) -> bool:
-        return self.__spicy_beef
-
-    @spicy_beef.setter
-    def spicy_beef(self, value: bool) -> None:
-        self.__spicy_beef = value
-
-    @property
-    def chili(self) -> bool:
-        return self.__chili
-
-    @chili.setter
-    def chili(self, value: bool) -> None:
-        self.__chili = value
+        return 1555
 
     @property
     def red_sauce(self) -> bool:
@@ -75,36 +57,30 @@ class ClueChili:
         self.__red_sauce = value
 
     @property
-    def beans(self) -> bool:
-        return self.__beans
+    def crispy_chicken(self) -> bool:
+        return self.__crispy_chicken
 
-    @beans.setter
-    def beans(self, value: bool) -> None:
-        self.__beans = value
+    @crispy_chicken.setter
+    def crispy_chicken(self, value: bool) -> None:
+        self.__crispy_chicken = value
 
     @property
     def instructions(self) -> List[str]:
         ingredients: List[str] = []
-        if not self.__spicy_beef:
-            ingredients.append("Hold Spicy Beef")
-        if not self.__chili:
-            ingredients.append("Hold Chili")
         if not self.__red_sauce:
             ingredients.append("Hold Red Sauce")
-        if not self.__beans:
-            ingredients.append("Hold Beans")
+        if not self.__crispy_chicken:
+            ingredients.append("Hold Crispy Chicken")
         return ingredients.copy()
 
     def __str__(self) -> str:
-        return "Clue Chili on {}".format(self.__base)
+        return "Chess Chicken Parm on {}".format(self.__base)
 
     def __eq__(self, value: object) -> bool:
         if isinstance(value, ClueChili):
             return (self.__base == value.base and 
                     self.__toppings == value.toppings and
-                    self.__spicy_beef == value.spicy_beef and 
-                    self.__chili == value.chili and 
                     self.__red_sauce == value.red_sauce and
-                    self.__beans == value.beans)
+                    self.__crispy_chicken == value.crispy_chicken)
         else:
             return False
