@@ -100,7 +100,7 @@ class MonopolyBowl:
         return "Clue Chili on {}".format(self.__base)
 
     def __eq__(self, value: object) -> bool:
-        if isinstance(value, ClueChili):
+        if isinstance(value, MonopolyBowl):
             return (self.__base == value.base and 
                     self.__toppings == value.toppings and
                     self.__spicy_beef == value.spicy_beef and 

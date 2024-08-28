@@ -77,7 +77,7 @@ class ChessChickenParm:
         return "Chess Chicken Parm on {}".format(self.__base)
 
     def __eq__(self, value: object) -> bool:
-        if isinstance(value, ClueChili):
+        if isinstance(value, ChessChickenParm):
             return (self.__base == value.base and 
                     self.__toppings == value.toppings and
                     self.__red_sauce == value.red_sauce and
