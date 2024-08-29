@@ -1,6 +1,6 @@
-"""CatanSkewers
+"""CatanSkewers class
 
-This is a class that creates the CatanSkewers
+This is a class that creates the Catan Skewers
 side menu item.
 
 Author: Mason Pride mtpride@ksu.edu
@@ -26,14 +26,14 @@ class CatanSkewers:
     def size(self, value: Size) -> None:
         self.__size = value
         if value == Size.CLASSIC:
-            self.__price: float = 6.85
-            self.__calories: int = 815
+            self.__price = 6.85
+            self.__calories = 815
         elif value == Size.WINNER:
             self.__price = 8.65
             self.__calories = 1045
         else:
-            self.__price: float = 4.45
-            self.__calories: int = 530
+            self.__price = 4.45
+            self.__calories = 530
 
     @property
     def price(self) -> float:

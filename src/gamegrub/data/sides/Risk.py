@@ -1,4 +1,4 @@
-"""RiskBites
+"""RiskBites class
 
 This is a class that creates the Risk Bites
 side menu item.
@@ -26,14 +26,14 @@ class RiskBites:
     def size(self, value: Size) -> None:
         self.__size = value
         if value == Size.CLASSIC:
-            self.__price: float = 5.15
-            self.__calories: int = 755
+            self.__price = 5.15
+            self.__calories = 755
         elif value == Size.WINNER:
             self.__price = 6.95
             self.__calories = 940
         else:
-            self.__price: float = 3.95
-            self.__calories: int = 480
+            self.__price = 3.95
+            self.__calories = 480
 
     @property
     def price(self) -> float:

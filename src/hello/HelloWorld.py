@@ -16,6 +16,7 @@ from src.gamegrub.data.entrees.Yahtzee import YahtzeePoke
 from src.gamegrub.data.entrees.Chess import ChessChickenParm
 from src.gamegrub.data.entrees.Monopoly import MonopolyBowl
 from src.gamegrub.data.sides.Dice import PotatoDice
+from src.gamegrub.data.drinks.Candy import CandyLandShake
 
 
 class HelloWorld:
@@ -39,17 +40,12 @@ class HelloWorld:
             print("Hello World")
 
         
-        side: PotatoDice = PotatoDice()
-        print(side)
-        print(side.size)
-        print(side.price)
-        print(side.calories)
-
-        print("\n change size: ")
-        side.size = Size.WINNER
-        print(side)
-        print(side.size)
-        print(side.price)
-        print(side.calories)
-
+        drink: CandyLandShake = CandyLandShake()
+        print(drink)
+        print(drink.price)
+        print(drink.calories)
         
+        drink.chocolate = False
+        drink.vanilla = True
+        drink.strawberry = True
+        print(drink.instructions)

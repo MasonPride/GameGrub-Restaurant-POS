@@ -26,14 +26,14 @@ class PotatoDice:
     def size(self, value: Size) -> None:
         self.__size = value
         if value == Size.CLASSIC:
-            self.__price: float = 3.85
-            self.__calories: int = 475
+            self.__price = 3.85
+            self.__calories = 475
         elif value == Size.WINNER:
             self.__price = 5.35
             self.__calories = 795
         else:
-            self.__price: float = 2.75
-            self.__calories: int = 350
+            self.__price = 2.75
+            self.__calories = 350
 
     @property
     def price(self) -> float:
