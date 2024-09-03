@@ -95,7 +95,7 @@ class CraniumCoffee:
         return "{} Cranium Coffee".format(self.__size)
 
     def __eq__(self, value: object) -> bool:
-        if isinstance(value, SorrySoda):
+        if isinstance(value, CraniumCoffee):
             return (self.__size == value.size and
                     self.__price == value.price and
                     self.__calories == value.calories and
