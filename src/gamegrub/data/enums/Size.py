@@ -1,9 +1,10 @@
-"""Enumeration of Sides
+"""Enumeration of Sides.
 
 Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
 from enum import Enum
+
 
 class Size(str, Enum):
     """Enumeration of size values."""
@@ -12,7 +13,7 @@ class Size(str, Enum):
     WINNER = "Winner"
 
     def __str__(self) -> str:
-        """String description sizes
+        """String description sizes.
 
         Returns:
             string description
@@ -20,7 +21,7 @@ class Size(str, Enum):
         return str(self.value)
 
     def __repr__(self) -> str:
-        """Represenation of the sizes
+        """Represenation of the sizes.
 
         Returns:
             string of represenation

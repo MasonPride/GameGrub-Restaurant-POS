@@ -1,4 +1,5 @@
-"""SorrySoda class
+"""SorrySoda class.
+
 This is a class that creates the Sorry Soda
 drink menu item.
 
@@ -6,19 +7,19 @@ Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
 
-from typing import List, Set
+from typing import List
 from src.gamegrub.data.enums.Size import Size
 
 
 class SorrySoda:
-    """Represents the Sorry Soda drink
+    """Represents the Sorry Soda drink.
 
-    This class builds the SorrySoda drink 
+    This class builds the SorrySoda drink
     menu item.
     """
 
     def __init__(self) -> None:
-        """Initializes the class
+        """Initializes the class.
 
         Creates the SorrySoda object with
         preset price, calories, size, and flavor attributes.
@@ -33,7 +34,7 @@ class SorrySoda:
 
     @property
     def size(self) -> Size:
-        """Size attibute getter method
+        """Size attibute getter method.
 
         Gets the size attribute of the class.
 
@@ -44,12 +45,12 @@ class SorrySoda:
 
     @size.setter
     def size(self, value: Size) -> None:
-        """Size attribute setter method
+        """Size attribute setter method.
 
-        Sets the size, price, and calories 
+        Sets the size, price, and calories
         attribute of the class to the desired Size.
 
-        Args: 
+        Args:
             value: The desired Size from Size enum class
         """
         self.__size = value
@@ -65,7 +66,7 @@ class SorrySoda:
 
     @property
     def price(self) -> float:
-        """Price attribute getter method
+        """Price attribute getter method.
 
         Gets the price attribute of the class.
 
@@ -76,7 +77,7 @@ class SorrySoda:
 
     @property
     def calories(self) -> int:
-        """Calories attribute getter method
+        """Calories attribute getter method.
 
         Gets the calories attribute of the class.
 
@@ -87,24 +88,24 @@ class SorrySoda:
 
     @property
     def cola(self) -> bool:
-        """Cola attribute getter method
+        """Cola attribute getter method.
 
         Gets the cola attribute of the class.
 
         Returns:
-            True if the drink has cola; 
+            True if the drink has cola;
             False if not
         """
         return self.__cola
-    
+
     @cola.setter
     def cola(self, value: bool) -> None:
-        """Cola attribute setter method
+        """Cola attribute setter method.
 
-        Sets the cola attribute of the class to 
+        Sets the cola attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing flavor
             setting
         """
@@ -112,24 +113,24 @@ class SorrySoda:
 
     @property
     def cherry(self) -> bool:
-        """Cherry attribute getter method
+        """Cherry attribute getter method.
 
         Gets the cherry attribute of the class.
 
         Returns:
-            True if the drink has cherry; 
+            True if the drink has cherry;
             False if not
         """
         return self.__cherry
-    
+
     @cherry.setter
     def cherry(self, value: bool) -> None:
-        """Cherry attribute setter method
+        """Cherry attribute setter method.
 
-        Sets the cherry attribute of the class to 
+        Sets the cherry attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing flavor
             setting
         """
@@ -137,24 +138,24 @@ class SorrySoda:
 
     @property
     def grape(self) -> bool:
-        """grape attribute getter method
+        """Grape attribute getter method.
 
         Gets the grape attribute of the class.
 
         Returns:
-            True if the drink has grape; 
+            True if the drink has grape;
             False if not
         """
         return self.__grape
-    
+
     @grape.setter
     def grape(self, value: bool) -> None:
-        """Grape attribute setter method
+        """Grape attribute setter method.
 
-        Sets the grape attribute of the class to 
+        Sets the grape attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing flavor
             setting
         """
@@ -162,24 +163,24 @@ class SorrySoda:
 
     @property
     def orange(self) -> bool:
-        """Orange attribute getter method
+        """Orange attribute getter method.
 
         Gets the orange attribute of the class.
 
         Returns:
-            True if the drink has orange; 
+            True if the drink has orange;
             False if not
         """
         return self.__orange
-    
+
     @orange.setter
     def orange(self, value: bool) -> None:
-        """Orange attribute setter method
+        """Orange attribute setter method.
 
-        Sets the orange attribute of the class to 
+        Sets the orange attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing flavor
             setting
         """
@@ -187,9 +188,9 @@ class SorrySoda:
 
     @property
     def instructions(self) -> List[str]:
-        """Shows the list of instructions
+        """Shows the list of instructions.
 
-        This method will return a list of the 
+        This method will return a list of the
         special instructions given to the drink.
 
         Returns:
@@ -207,7 +208,7 @@ class SorrySoda:
         return instruct.copy()
 
     def __str__(self) -> str:
-        """String overide method
+        """String overide method.
 
         Creates a string of the drink
         menu item.
@@ -218,14 +219,15 @@ class SorrySoda:
         return "{} Sorry Soda".format(self.__size)
 
     def __eq__(self, value: object) -> bool:
-        """Equals overide method
+        """Equals overide method.
 
         Checks to see if two menu items are equal.
 
         Args:
             value: Object representing a drink item
+
         Returns:
-            True if items are equal; 
+            True if items are equal;
             False if not
         """
         if isinstance(value, SorrySoda):

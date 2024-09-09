@@ -1,9 +1,10 @@
-"""Enumeration of Toppings
+"""Enumeration of Toppings.
 
 Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
 from enum import Enum
+
 
 class Toppings(str, Enum):
     """Enumeration of topping values."""
@@ -17,7 +18,7 @@ class Toppings(str, Enum):
     FRESH_HERBS = "Fresh Herbs"
 
     def __str__(self) -> str:
-        """String description toppings
+        """String description toppings.
 
         Returns:
             string description
@@ -25,7 +26,7 @@ class Toppings(str, Enum):
         return str(self.value)
 
     def __repr__(self) -> str:
-        """Represenation of the toppings
+        """Represenation of the toppings.
 
         Returns:
             string of represenation

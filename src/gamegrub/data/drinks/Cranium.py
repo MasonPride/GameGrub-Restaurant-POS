@@ -1,4 +1,5 @@
-"""CraniumCoffee class
+"""CraniumCoffee class.
+
 This is a class that creates the Cranium Coffee
 drink menu item.
 
@@ -6,19 +7,19 @@ Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
 
-from typing import List, Set
+from typing import List
 from src.gamegrub.data.enums.Size import Size
 
 
 class CraniumCoffee:
-    """Represents the Cranium Coffee drink
+    """Represents the Cranium Coffee drink.
 
-    This class builds the CraniumCoffee drink 
+    This class builds the CraniumCoffee drink
     menu item.
     """
 
     def __init__(self) -> None:
-        """Initializes the class
+        """Initializes the class.
 
         Creates the CraniumCoffee object with
         preset price, calories, size, and flavor attributes.
@@ -33,7 +34,7 @@ class CraniumCoffee:
 
     @property
     def size(self) -> Size:
-        """Size attibute getter method
+        """Size attibute getter method.
 
         Gets the size attribute of the class.
 
@@ -44,12 +45,12 @@ class CraniumCoffee:
 
     @size.setter
     def size(self, value: Size) -> None:
-        """Size attribute setter method
+        """Size attribute setter method.
 
-        Sets the size, price, and calories 
+        Sets the size, price, and calories
         attribute of the class to the desired Size.
 
-        Args: 
+        Args:
             value: The desired Size from Size enum class
         """
         self.__size = value
@@ -65,7 +66,7 @@ class CraniumCoffee:
 
     @property
     def price(self) -> float:
-        """Price attribute getter method
+        """Price attribute getter method.
 
         Gets the price attribute of the class.
 
@@ -76,7 +77,7 @@ class CraniumCoffee:
 
     @property
     def calories(self) -> int:
-        """Calories attribute getter method
+        """Calories attribute getter method.
 
         Gets the calories attribute of the class.
 
@@ -87,24 +88,24 @@ class CraniumCoffee:
 
     @property
     def milk(self) -> bool:
-        """Milk attribute getter method
+        """Milk attribute getter method.
 
         Gets the milk attribute of the class.
 
         Returns:
-            True if the drink has milk; 
+            True if the drink has milk;
             False if not
         """
         return self.__milk
-    
+
     @milk.setter
     def milk(self, value: bool) -> None:
-        """Milk attribute setter method
+        """Milk attribute setter method.
 
-        Sets the milk attribute of the class to 
+        Sets the milk attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing flavor
             setting
         """
@@ -112,24 +113,24 @@ class CraniumCoffee:
 
     @property
     def caramel(self) -> bool:
-        """Caramel attribute getter method
+        """Caramel attribute getter method.
 
         Gets the caramel attribute of the class.
 
         Returns:
-            True if the drink has caramel; 
+            True if the drink has caramel;
             False if not
         """
         return self.__caramel
-    
+
     @caramel.setter
     def caramel(self, value: bool) -> None:
-        """Caramel attribute setter method
+        """Caramel attribute setter method.
 
-        Sets the caramel attribute of the class to 
+        Sets the caramel attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing flavor
             setting
         """
@@ -137,24 +138,24 @@ class CraniumCoffee:
 
     @property
     def chocolate(self) -> bool:
-        """Chocolate attribute getter method
+        """Chocolate attribute getter method.
 
         Gets the chocolate attribute of the class.
 
         Returns:
-            True if the drink has chocolate; 
+            True if the drink has chocolate;
             False if not
         """
         return self.__chocolate
-    
+
     @chocolate.setter
     def chocolate(self, value: bool) -> None:
-        """Chocolate attribute setter method
+        """Chocolate attribute setter method.
 
-        Sets the chocolate attribute of the class to 
+        Sets the chocolate attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing flavor
             setting
         """
@@ -162,24 +163,24 @@ class CraniumCoffee:
 
     @property
     def mint(self) -> bool:
-        """Mint attribute getter method
+        """Mint attribute getter method.
 
         Gets the mint attribute of the class.
 
         Returns:
-            True if the drink has mint; 
+            True if the drink has mint;
             False if not
         """
         return self.__mint
-    
+
     @mint.setter
     def mint(self, value: bool) -> None:
-        """Mint attribute setter method
+        """Mint attribute setter method.
 
-        Sets the mint attribute of the class to 
+        Sets the mint attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing flavor
             setting
         """
@@ -187,9 +188,9 @@ class CraniumCoffee:
 
     @property
     def instructions(self) -> List[str]:
-        """Shows the list of instructions
+        """Shows the list of instructions.
 
-        This method will return a list of the 
+        This method will return a list of the
         special instructions given to the drink.
 
         Returns:
@@ -207,7 +208,7 @@ class CraniumCoffee:
         return instruct.copy()
 
     def __str__(self) -> str:
-        """String overide method
+        """String overide method.
 
         Creates a string of the drink
         menu item.
@@ -218,14 +219,15 @@ class CraniumCoffee:
         return "{} Cranium Coffee".format(self.__size)
 
     def __eq__(self, value: object) -> bool:
-        """Equals overide method
+        """Equals overide method.
 
         Checks to see if two menu items are equal.
 
         Args:
             value: Object representing a drink item
+
         Returns:
-            True if items are equal; 
+            True if items are equal;
             False if not
         """
         if isinstance(value, CraniumCoffee):

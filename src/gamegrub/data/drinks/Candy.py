@@ -1,4 +1,4 @@
-"""CandyLandShake class
+"""CandyLandShake class.
 
 This is a class that creates the Candy Land Shake
 drink menu item.
@@ -7,19 +7,19 @@ Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
 
-from typing import List, Set
+from typing import List
 from src.gamegrub.data.enums.Size import Size
 
 
 class CandyLandShake:
-    """Represents the Candy Land Shake drink
+    """Represents the Candy Land Shake drink.
 
-    This class builds the CandyLandShake drink 
+    This class builds the CandyLandShake drink
     menu item.
     """
 
     def __init__(self) -> None:
-        """Initializes the class
+        """Initializes the class.
 
         Creates the CandyLandShake object with
         preset price, calories, size, and topping attributes.
@@ -30,10 +30,10 @@ class CandyLandShake:
         self.__chocolate: bool = True
         self.__vanilla: bool = False
         self.__strawberry: bool = False
-    
+
     @property
     def size(self) -> Size:
-        """Size attibute getter method
+        """Size attibute getter method.
 
         Gets the size attribute of the class.
 
@@ -44,12 +44,12 @@ class CandyLandShake:
 
     @size.setter
     def size(self, value: Size) -> None:
-        """Size attibute setter method
+        """Size attibute setter method.
 
-        Sets the size, price, and calories 
+        Sets the size, price, and calories
         attribute of the class to the desired Size.
 
-        Args: 
+        Args:
             value: The desired Size from Size enum class
         """
         self.__size = value
@@ -65,7 +65,7 @@ class CandyLandShake:
 
     @property
     def price(self) -> float:
-        """Price attibute getter method
+        """Price attibute getter method.
 
         Gets the price attribute of the class.
 
@@ -76,7 +76,7 @@ class CandyLandShake:
 
     @property
     def calories(self) -> int:
-        """Calories attribute getter method
+        """Calories attribute getter method.
 
         Gets the calories attribute of the class.
 
@@ -87,24 +87,24 @@ class CandyLandShake:
 
     @property
     def chocolate(self) -> bool:
-        """Chocolate attribute getter method
+        """Chocolate attribute getter method.
 
         Gets the chocolate attribute of the class.
 
         Returns:
-            True if the drink has chocolate; 
+            True if the drink has chocolate;
             False if not
         """
         return self.__chocolate
-    
+
     @chocolate.setter
     def chocolate(self, value: bool) -> None:
-        """Chocolate attribute setter method
+        """Chocolate attribute setter method.
 
-        Sets the chocolate attribute of the class to 
+        Sets the chocolate attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing topping
             setting
         """
@@ -112,24 +112,24 @@ class CandyLandShake:
 
     @property
     def vanilla(self) -> bool:
-        """Vanilla attribute getter method
+        """Vanilla attribute getter method.
 
         Gets the vanilla attribute of the class.
 
         Returns:
-            True if the drink has vanilla; 
+            True if the drink has vanilla;
             False if not
         """
         return self.__vanilla
-    
+
     @vanilla.setter
     def vanilla(self, value: bool) -> None:
-        """Vanilla attribute setter method
+        """Vanilla attribute setter method.
 
-        Sets the vanilla attribute of the class to 
+        Sets the vanilla attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing topping
             setting
         """
@@ -137,24 +137,24 @@ class CandyLandShake:
 
     @property
     def strawberry(self) -> bool:
-        """Strawberry attribute getter method
+        """Strawberry attribute getter method.
 
         Gets the strawberry attribute of the class.
 
         Returns:
-            True if the drink has strawberry; 
+            True if the drink has strawberry;
             False if not
         """
         return self.__strawberry
-    
+
     @strawberry.setter
     def strawberry(self, value: bool) -> None:
-        """Strawberry attribute setter method
+        """Strawberry attribute setter method.
 
-        Sets the strawberry attribute of the class to 
+        Sets the strawberry attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing topping
             setting
         """
@@ -162,9 +162,9 @@ class CandyLandShake:
 
     @property
     def instructions(self) -> List[str]:
-        """Shows the list of instructions
+        """Shows the list of instructions.
 
-        This method will return a list of the 
+        This method will return a list of the
         special instructions given to the drink.
 
         Returns:
@@ -180,7 +180,7 @@ class CandyLandShake:
         return instruct.copy()
 
     def __str__(self) -> str:
-        """String overide method
+        """String overide method.
 
         Creates a string of the drink
         menu item.
@@ -191,14 +191,15 @@ class CandyLandShake:
         return "{} Candy Land Shake".format(self.__size)
 
     def __eq__(self, value: object) -> bool:
-        """Equals overide method
+        """Equals overide method.
 
         Checks to see if two menu items are equal.
 
         Args:
             value: Object representing a drink item
+
         Returns:
-            True if items are equal; 
+            True if items are equal;
             False if not
         """
         if isinstance(value, CandyLandShake):

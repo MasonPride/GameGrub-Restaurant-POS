@@ -1,9 +1,10 @@
-"""Enumeration of Bases
+"""Enumeration of Bases.
 
 Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
 from enum import Enum
+
 
 class Base(Enum):
     """Enumeration of base values."""
@@ -15,14 +16,14 @@ class Base(Enum):
         """Constructor.
 
         Args:
-            description: the description of the base item 
+            description: the description of the base item
             amount: the amount it costs
         """
         self.description: str = description
         self.amount: float = amount
 
     def __str__(self) -> str:
-        """String description sizes
+        """String description sizes.
 
         Returns:
             string description
@@ -30,7 +31,7 @@ class Base(Enum):
         return str(self.description)
 
     def __repr__(self) -> str:
-        """Represenation of the Bases
+        """Represenation of the Bases.
 
         Returns:
             string of represenation
