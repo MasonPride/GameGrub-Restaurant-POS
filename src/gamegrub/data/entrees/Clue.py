@@ -1,4 +1,4 @@
-"""ClueChili class
+"""ClueChili class.
 
 This is a class that creates the Clue Chili
 menu item.
@@ -12,22 +12,23 @@ from src.gamegrub.data.enums.Toppings import Toppings
 
 
 class ClueChili:
-    """Represents the Clue Chili entree
+    """Represents the Clue Chili entree.
 
-    This class builds the ClueChili entree 
+    This class builds the ClueChili entree
     menu item.
     """
 
     def __init__(self) -> None:
-        """Initializes the class
+        """Initializes the class.
 
         Creates the ClueChili object with
-        preset price, calories, base, toppings, 
+        preset price, calories, base, toppings,
         and ingredients.
         """
         self.__base: Base = Base.SPAGHETTI
-        self.__toppings: Set[Toppings] = {Toppings.ONIONS, Toppings.CHEESE, Toppings.HOT_SAUCE}
-        self.__price: float = 8.95 
+        self.__toppings: Set[Toppings] = {
+            Toppings.ONIONS, Toppings.CHEESE, Toppings.HOT_SAUCE}
+        self.__price: float = 8.95
         self.__spicy_beef: bool = True
         self.__chili: bool = True
         self.__red_sauce: bool = True
@@ -35,7 +36,7 @@ class ClueChili:
 
     @property
     def base(self) -> Base:
-        """Base attribute getter method
+        """Base attribute getter method.
 
         Gets the base attribute of the class.
 
@@ -46,30 +47,30 @@ class ClueChili:
 
     @base.setter
     def base(self, value: Base) -> None:
-        """Base attribute setter method
+        """Base attribute setter method.
 
-        Sets the base, price, and calories 
+        Sets the base, price, and calories
         attribute of the class to the desired Size.
 
-        Args: 
+        Args:
             value: The desired base from Base enum class
         """
         self.__base = value
 
     @property
     def toppings(self) -> Set[Toppings]:
-        """Toppings attribute getter method
+        """Toppings attribute getter method.
 
         Gets the toppings attribute of the class.
 
         Returns:
-            Shallow copy of toppings attribute 
+            Shallow copy of toppings attribute
             of the object; a set containing the toppings
         """
         return self.__toppings.copy()
 
     def add_topping(self, value: Toppings) -> None:
-        """Add toppings to object
+        """Add toppings to object.
 
         Adds a topping from the Toppings enum class
         to the set of toppings of the object.
@@ -80,9 +81,9 @@ class ClueChili:
         self.__toppings.add(value)
 
     def remove_topping(self, value: Toppings) -> None:
-        """Remove toppings from object
+        """Remove toppings from object.
 
-        Removes a topping from the toppings set 
+        Removes a topping from the toppings set
 
         Args:
             value: The desired topping from Toppings enum
@@ -92,9 +93,9 @@ class ClueChili:
 
     @property
     def price(self) -> float:
-        """Price attribute getter method
+        """Price attribute getter method.
 
-        Gets the total price attribute of the class 
+        Gets the total price attribute of the class
         by adding the default price and base price
 
         Returns:
@@ -104,7 +105,7 @@ class ClueChili:
 
     @property
     def calories(self) -> int:
-        """Calories attribute getter method
+        """Calories attribute getter method.
 
         Gets the calories attribute of the class.
 
@@ -115,24 +116,24 @@ class ClueChili:
 
     @property
     def spicy_beef(self) -> bool:
-        """Spicy Beef attribute getter method
+        """Spicy Beef attribute getter method.
 
         Gets the spicy beef attribute of the class.
 
         Returns:
-            True if the entree has spicy beef; 
+            True if the entree has spicy beef;
             False if not
         """
         return self.__spicy_beef
 
     @spicy_beef.setter
     def spicy_beef(self, value: bool) -> None:
-        """Spicy Beef attribute setter method
+        """Spicy Beef attribute setter method.
 
-        Sets the spicy beef attribute of the class to 
+        Sets the spicy beef attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -140,24 +141,24 @@ class ClueChili:
 
     @property
     def chili(self) -> bool:
-        """Chili attribute getter method
+        """Chili attribute getter method.
 
         Gets the chili attribute of the class.
 
         Returns:
-            True if the entree has chili; 
+            True if the entree has chili;
             False if not
         """
         return self.__chili
 
     @chili.setter
     def chili(self, value: bool) -> None:
-        """Chili attribute setter method
+        """Chili attribute setter method.
 
-        Sets the chili attribute of the class to 
+        Sets the chili attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -165,24 +166,24 @@ class ClueChili:
 
     @property
     def red_sauce(self) -> bool:
-        """Red Sauce attribute getter method
+        """Red Sauce attribute getter method.
 
         Gets the red sauce attribute of the class.
 
         Returns:
-            True if the entree has red sauce; 
+            True if the entree has red sauce;
             False if not
         """
         return self.__red_sauce
 
     @red_sauce.setter
     def red_sauce(self, value: bool) -> None:
-        """Red Sauce attribute setter method
+        """Red Sauce attribute setter method.
 
-        Sets the red sauce attribute of the class to 
+        Sets the red sauce attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -190,24 +191,24 @@ class ClueChili:
 
     @property
     def beans(self) -> bool:
-        """Beans attribute getter method
+        """Beans attribute getter method.
 
         Gets the beans attribute of the class.
 
         Returns:
-            True if the entree has beans; 
+            True if the entree has beans;
             False if not
         """
         return self.__beans
 
     @beans.setter
     def beans(self, value: bool) -> None:
-        """Beans attribute setter method
+        """Beans attribute setter method.
 
-        Sets the beans attribute of the class to 
+        Sets the beans attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -215,9 +216,9 @@ class ClueChili:
 
     @property
     def instructions(self) -> List[str]:
-        """Shows the list of instructions
+        """Shows the list of instructions.
 
-        This method will return a list of the 
+        This method will return a list of the
         special instructions given to the entree.
 
         Returns:
@@ -235,7 +236,7 @@ class ClueChili:
         return ingredients.copy()
 
     def __str__(self) -> str:
-        """String overide method
+        """String overide method.
 
         Creates a string of the entree
         menu item.
@@ -246,7 +247,7 @@ class ClueChili:
         return "Clue Chili on {}".format(self.__base)
 
     def __eq__(self, value: object) -> bool:
-        """Equals overide method
+        """Equals overide method.
 
         Checks to see if two menu items are equal.
 
@@ -254,14 +255,14 @@ class ClueChili:
             value: Object representing an entree item
 
         Returns:
-            True if items are equal; 
+            True if items are equal;
             False if not
         """
         if isinstance(value, ClueChili):
-            return (self.__base == value.base and 
+            return (self.__base == value.base and
                     self.__toppings == value.toppings and
-                    self.__spicy_beef == value.spicy_beef and 
-                    self.__chili == value.chili and 
+                    self.__spicy_beef == value.spicy_beef and
+                    self.__chili == value.chili and
                     self.__red_sauce == value.red_sauce and
                     self.__beans == value.beans)
         else:

@@ -1,4 +1,4 @@
-"""YahtzeePoke class
+"""YahtzeePoke class.
 
 This is a class that creates the Yahtzee Poke
 menu item.
@@ -12,24 +12,23 @@ from src.gamegrub.data.enums.Toppings import Toppings
 
 
 class YahtzeePoke:
-    """Represents the Yahtzee Poke entree
+    """Represents the Yahtzee Poke entree.
 
-    This class builds the YahtzeePoke entree 
+    This class builds the YahtzeePoke entree
     menu item.
     """
 
     def __init__(self) -> None:
-        """Initializes the class
+        """Initializes the class.
 
         Creates the MonopolyBowl object with
-        preset price, calories, base, toppings, 
+        preset price, calories, base, toppings,
         and ingredients.
         """
         self.__base: Base = Base.RICE
-        self.__toppings: Set[Toppings] = {Toppings.GUACAMOLE, 
-                                            Toppings.SOY_SAUCE, 
-                                            Toppings.HOT_SAUCE, 
-                                            Toppings.CRISPY_STRIPS}
+        self.__toppings: Set[Toppings] = {
+            Toppings.GUACAMOLE, Toppings.SOY_SAUCE,
+            Toppings.HOT_SAUCE, Toppings.CRISPY_STRIPS}
         self.__price: float = 14.25
         self.__tuna: bool = True
         self.__veggies: bool = True
@@ -37,7 +36,7 @@ class YahtzeePoke:
 
     @property
     def base(self) -> Base:
-        """Base attribute getter method
+        """Base attribute getter method.
 
         Gets the base attribute of the class.
 
@@ -48,30 +47,30 @@ class YahtzeePoke:
 
     @base.setter
     def base(self, value: Base) -> None:
-        """Base attribute setter method
+        """Base attribute setter method.
 
-        Sets the base, price, and calories 
+        Sets the base, price, and calories
         attribute of the class to the desired Size.
 
-        Args: 
+        Args:
             value: The desired base from Base enum class
         """
         self.__base = value
 
     @property
     def toppings(self) -> Set[Toppings]:
-        """Toppings attribute getter method
+        """Toppings attribute getter method.
 
         Gets the toppings attribute of the class.
 
         Returns:
-            Shallow copy of toppings attribute 
+            Shallow copy of toppings attribute
             of the object; a set containing the toppings
         """
         return self.__toppings.copy()
 
     def add_topping(self, value: Toppings) -> None:
-        """Add toppings to object
+        """Add toppings to object.
 
         Adds a topping from the Toppings enum class
         to the set of toppings of the object.
@@ -82,9 +81,9 @@ class YahtzeePoke:
         self.__toppings.add(value)
 
     def remove_topping(self, value: Toppings) -> None:
-        """Remove toppings from object
+        """Remove toppings from object.
 
-        Removes a topping from the toppings set 
+        Removes a topping from the toppings set
 
         Args:
             value: The desired topping from Toppings enum
@@ -94,9 +93,9 @@ class YahtzeePoke:
 
     @property
     def price(self) -> float:
-        """Price attribute getter method
+        """Price attribute getter method.
 
-        Gets the total price attribute of the class 
+        Gets the total price attribute of the class
         by adding the default price and base price
 
         Returns:
@@ -106,7 +105,7 @@ class YahtzeePoke:
 
     @property
     def calories(self) -> int:
-        """Calories attribute getter method
+        """Calories attribute getter method.
 
         Gets the calories attribute of the class.
 
@@ -117,24 +116,24 @@ class YahtzeePoke:
 
     @property
     def tuna(self) -> bool:
-        """Tuna attribute getter method
+        """Tuna attribute getter method.
 
         Gets the tuna attribute of the class.
 
         Returns:
-            True if the entree has tuna; 
+            True if the entree has tuna;
             False if not
         """
         return self.__tuna
 
     @tuna.setter
     def tuna(self, value: bool) -> None:
-        """Tuna attribute setter method
+        """Tuna attribute setter method.
 
-        Sets the tuna attribute of the class to 
+        Sets the tuna attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -142,24 +141,24 @@ class YahtzeePoke:
 
     @property
     def veggies(self) -> bool:
-        """Veggies attribute getter method
+        """Veggies attribute getter method.
 
         Gets the veggies attribute of the class.
 
         Returns:
-            True if the entree has veggies; 
+            True if the entree has veggies;
             False if not
         """
         return self.__veggies
 
     @veggies.setter
     def veggies(self, value: bool) -> None:
-        """Veggies attribute setter method
+        """Veggies attribute setter method.
 
-        Sets the veggies beef attribute of the class to 
+        Sets the veggies beef attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -167,34 +166,34 @@ class YahtzeePoke:
 
     @property
     def seaweed(self) -> bool:
-        """Seaweed attribute getter method
+        """Seaweed attribute getter method.
 
         Gets the seaweed attribute of the class.
 
         Returns:
-            True if the entree has seaweed; 
+            True if the entree has seaweed;
             False if not
         """
         return self.__seaweed
 
     @seaweed.setter
     def seaweed(self, value: bool) -> None:
-        """Seaweed attribute setter method
+        """Seaweed attribute setter method.
 
-        Sets the seaweed attribute of the class to 
+        Sets the seaweed attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
         self.__seaweed = value
-    
+
     @property
     def instructions(self) -> List[str]:
-        """Shows the list of instructions
+        """Shows the list of instructions.
 
-        This method will return a list of the 
+        This method will return a list of the
         special instructions given to the entree.
 
         Returns:
@@ -210,7 +209,7 @@ class YahtzeePoke:
         return ingredients.copy()
 
     def __str__(self) -> str:
-        """String overide method
+        """String overide method.
 
         Creates a string of the entree
         menu item.
@@ -221,7 +220,7 @@ class YahtzeePoke:
         return "Yahtzee Poke on {}".format(self.__base)
 
     def __eq__(self, value: object) -> bool:
-        """Equals overide method
+        """Equals overide method.
 
         Checks to see if two menu items are equal.
 
@@ -229,15 +228,14 @@ class YahtzeePoke:
             value: Object representing an entree item
 
         Returns:
-            True if items are equal; 
+            True if items are equal;
             False if not
         """
         if isinstance(value, YahtzeePoke):
-            return (self.__base == value.base and 
+            return (self.__base == value.base and
                     self.__toppings == value.toppings and
-                    self.__tuna == value.tuna and 
-                    self.__veggies == value.veggies and 
+                    self.__tuna == value.tuna and
+                    self.__veggies == value.veggies and
                     self.__seaweed == value.seaweed)
         else:
             return False
-

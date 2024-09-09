@@ -1,4 +1,4 @@
-"""ChessChickenParm class
+"""ChessChickenParm class.
 
 This is a class that creates the Chess Chicken Parm
 menu item.
@@ -12,28 +12,29 @@ from src.gamegrub.data.enums.Toppings import Toppings
 
 
 class ChessChickenParm:
-    """Represents the Chess Chicken Parm entree
+    """Represents the Chess Chicken Parm entree.
 
-    This class builds the ChessChickenParm entree 
+    This class builds the ChessChickenParm entree
     menu item.
     """
 
     def __init__(self) -> None:
-        """Initializes the class
+        """Initializes the class.
 
         Creates the ChessChickenParm object with
-        preset price, calories, base, toppings, 
+        preset price, calories, base, toppings,
         and ingredients.
         """
         self.__base: Base = Base.SPAGHETTI
-        self.__toppings: Set[Toppings] = {Toppings.CHEESE, Toppings.FRESH_HERBS}
+        self.__toppings: Set[Toppings] = {
+            Toppings.CHEESE, Toppings.FRESH_HERBS}
         self.__price: float = 12.15
         self.__red_sauce: bool = True
         self.__crispy_chicken: bool = True
 
     @property
     def base(self) -> Base:
-        """Base attribute getter method
+        """Base attribute getter method.
 
         Gets the base attribute of the class.
 
@@ -44,30 +45,30 @@ class ChessChickenParm:
 
     @base.setter
     def base(self, value: Base) -> None:
-        """Base attribute setter method
+        """Base attribute setter method.
 
-        Sets the base, price, and calories 
+        Sets the base, price, and calories
         attribute of the class to the desired Size.
 
-        Args: 
+        Args:
             value: The desired base from Base enum class
         """
         self.__base = value
 
     @property
     def toppings(self) -> Set[Toppings]:
-        """Toppings attribute getter method
+        """Toppings attribute getter method.
 
         Gets the toppings attribute of the class.
 
         Returns:
-            Shallow copy of toppings attribute 
+            Shallow copy of toppings attribute
             of the object; a set containing the toppings
         """
         return self.__toppings.copy()
 
     def add_topping(self, value: Toppings) -> None:
-        """Add toppings to object
+        """Add toppings to object.
 
         Adds a topping from the Toppings enum class
         to the set of toppings of the object.
@@ -78,9 +79,9 @@ class ChessChickenParm:
         self.__toppings.add(value)
 
     def remove_topping(self, value: Toppings) -> None:
-        """Remove toppings from object
+        """Remove toppings from object.
 
-        Removes a topping from the toppings set 
+        Removes a topping from the toppings set
 
         Args:
             value: The desired topping from Toppings enum
@@ -90,9 +91,9 @@ class ChessChickenParm:
 
     @property
     def price(self) -> float:
-        """Price attribute getter method
+        """Price attribute getter method.
 
-        Gets the total price attribute of the class 
+        Gets the total price attribute of the class
         by adding the default price and base price
 
         Returns:
@@ -102,7 +103,7 @@ class ChessChickenParm:
 
     @property
     def calories(self) -> int:
-        """Calories attribute getter method
+        """Calories attribute getter method.
 
         Gets the calories attribute of the class.
 
@@ -113,24 +114,24 @@ class ChessChickenParm:
 
     @property
     def red_sauce(self) -> bool:
-        """Red Sauce attribute getter method
+        """Red Sauce attribute getter method.
 
         Gets the red sauce attribute of the class.
 
         Returns:
-            True if the entree has red sauce; 
+            True if the entree has red sauce;
             False if not
         """
         return self.__red_sauce
 
     @red_sauce.setter
     def red_sauce(self, value: bool) -> None:
-        """Red Sauce attribute setter method
+        """Red Sauce attribute setter method.
 
-        Sets the red sauce attribute of the class to 
+        Sets the red sauce attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -138,24 +139,24 @@ class ChessChickenParm:
 
     @property
     def crispy_chicken(self) -> bool:
-        """Crispy Chicken attribute getter method
+        """Crispy Chicken attribute getter method.
 
         Gets the crispy chicken attribute of the class.
 
         Returns:
-            True if the entree has crispy chicken; 
+            True if the entree has crispy chicken;
             False if not
         """
         return self.__crispy_chicken
 
     @crispy_chicken.setter
     def crispy_chicken(self, value: bool) -> None:
-        """Crispy Chicken attribute setter method
+        """Crispy Chicken attribute setter method.
 
-        Sets the crispy chicken attribute of the class to 
+        Sets the crispy chicken attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -163,9 +164,9 @@ class ChessChickenParm:
 
     @property
     def instructions(self) -> List[str]:
-        """Shows the list of instructions
+        """Shows the list of instructions.
 
-        This method will return a list of the 
+        This method will return a list of the
         special instructions given to the entree.
 
         Returns:
@@ -179,7 +180,7 @@ class ChessChickenParm:
         return ingredients.copy()
 
     def __str__(self) -> str:
-        """String overide method
+        """String overide method.
 
         Creates a string of the entree
         menu item.
@@ -190,7 +191,7 @@ class ChessChickenParm:
         return "Chess Chicken Parm on {}".format(self.__base)
 
     def __eq__(self, value: object) -> bool:
-        """Equals overide method
+        """Equals overide method.
 
         Checks to see if two menu items are equal.
 
@@ -198,11 +199,11 @@ class ChessChickenParm:
             value: Object representing an entree item
 
         Returns:
-            True if items are equal; 
+            True if items are equal;
             False if not
         """
         if isinstance(value, ChessChickenParm):
-            return (self.__base == value.base and 
+            return (self.__base == value.base and
                     self.__toppings == value.toppings and
                     self.__red_sauce == value.red_sauce and
                     self.__crispy_chicken == value.crispy_chicken)

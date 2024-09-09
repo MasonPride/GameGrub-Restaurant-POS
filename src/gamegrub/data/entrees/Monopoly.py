@@ -1,4 +1,4 @@
-"""MonopolyBowl class
+"""MonopolyBowl class.
 
 This is a class that creates the Monopoly Bowl
 menu item.
@@ -12,23 +12,25 @@ from src.gamegrub.data.enums.Toppings import Toppings
 
 
 class MonopolyBowl:
-    """Represents the Monopoly Bowl entree
+    """Represents the Monopoly Bowl entree.
 
-    This class builds the MonopolyBowl entree 
+    This class builds the MonopolyBowl entree
     menu item.
     """
 
     def __init__(self) -> None:
-        """Initializes the class
+        """Initializes the class.
 
         Creates the MonopolyBowl object with
-        preset price, calories, base, toppings, 
+        preset price, calories, base, toppings,
         and ingredients.
         """
         self.__base: Base = Base.RICE
-        self.__toppings: Set[Toppings] = {Toppings.ONIONS, Toppings.CHEESE, Toppings.HOT_SAUCE,
-                                        Toppings.SOUR_CREAM, Toppings.GUACAMOLE, Toppings.CRISPY_STRIPS}
-        self.__price: float = 17.65 
+        self.__toppings: Set[Toppings] = {
+            Toppings.ONIONS, Toppings.CHEESE,
+            Toppings.HOT_SAUCE, Toppings.SOUR_CREAM,
+            Toppings.GUACAMOLE, Toppings.CRISPY_STRIPS}
+        self.__price: float = 17.65
         self.__spicy_beef: bool = True
         self.__veggies: bool = True
         self.__crispy_chicken: bool = True
@@ -36,7 +38,7 @@ class MonopolyBowl:
 
     @property
     def base(self) -> Base:
-        """Base attribute getter method
+        """Base attribute getter method.
 
         Gets the base attribute of the class.
 
@@ -47,30 +49,30 @@ class MonopolyBowl:
 
     @base.setter
     def base(self, value: Base) -> None:
-        """Base attribute setter method
+        """Base attribute setter method.
 
-        Sets the base, price, and calories 
+        Sets the base, price, and calories
         attribute of the class to the desired Size.
 
-        Args: 
+        Args:
             value: The desired base from Base enum class
         """
         self.__base = value
 
     @property
     def toppings(self) -> Set[Toppings]:
-        """Toppings attribute getter method
+        """Toppings attribute getter method.
 
         Gets the toppings attribute of the class.
 
         Returns:
-            Shallow copy of toppings attribute 
+            Shallow copy of toppings attribute
             of the object; a set containing the toppings
         """
         return self.__toppings.copy()
 
     def add_topping(self, value: Toppings) -> None:
-        """Add toppings to object
+        """Add toppings to object.
 
         Adds a topping from the Toppings enum class
         to the set of toppings of the object.
@@ -81,9 +83,9 @@ class MonopolyBowl:
         self.__toppings.add(value)
 
     def remove_topping(self, value: Toppings) -> None:
-        """Remove toppings from object
+        """Remove toppings from object.
 
-        Removes a topping from the toppings set 
+        Removes a topping from the toppings set
 
         Args:
             value: The desired topping from Toppings enum
@@ -93,9 +95,9 @@ class MonopolyBowl:
 
     @property
     def price(self) -> float:
-        """Price attribute getter method
+        """Price attribute getter method.
 
-        Gets the total price attribute of the class 
+        Gets the total price attribute of the class
         by adding the default price and base price
 
         Returns:
@@ -105,7 +107,7 @@ class MonopolyBowl:
 
     @property
     def calories(self) -> int:
-        """Calories attribute getter method
+        """Calories attribute getter method.
 
         Gets the calories attribute of the class.
 
@@ -116,24 +118,24 @@ class MonopolyBowl:
 
     @property
     def spicy_beef(self) -> bool:
-        """Spicy Beef attribute getter method
+        """Spicy Beef attribute getter method.
 
         Gets the spicy beef attribute of the class.
 
         Returns:
-            True if the entree has spicy beef; 
+            True if the entree has spicy beef;
             False if not
         """
         return self.__spicy_beef
 
     @spicy_beef.setter
     def spicy_beef(self, value: bool) -> None:
-        """Spicy Beef attribute setter method
+        """Spicy Beef attribute setter method.
 
-        Sets the spci beef attribute of the class to 
+        Sets the spci beef attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -141,24 +143,24 @@ class MonopolyBowl:
 
     @property
     def veggies(self) -> bool:
-        """Veggies attribute getter method
+        """Veggies attribute getter method.
 
         Gets the veggies attribute of the class.
 
         Returns:
-            True if the entree has veggies; 
+            True if the entree has veggies;
             False if not
         """
         return self.__veggies
 
     @veggies.setter
     def veggies(self, value: bool) -> None:
-        """Veggies attribute setter method
+        """Veggies attribute setter method.
 
-        Sets the veggies attribute of the class to 
+        Sets the veggies attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -166,24 +168,24 @@ class MonopolyBowl:
 
     @property
     def crispy_chicken(self) -> bool:
-        """Crispy Chicken attribute getter method
+        """Crispy Chicken attribute getter method.
 
         Gets the crispy chicken attribute of the class.
 
         Returns:
-            True if the entree has crispy chicken; 
+            True if the entree has crispy chicken;
             False if not
         """
         return self.__crispy_chicken
 
     @crispy_chicken.setter
     def crispy_chicken(self, value: bool) -> None:
-        """Crispy Chicken attribute setter method
+        """Crispy Chicken attribute setter method.
 
-        Sets the crispy chicken attribute of the class to 
+        Sets the crispy chicken attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -191,24 +193,24 @@ class MonopolyBowl:
 
     @property
     def beans(self) -> bool:
-        """Beans attribute getter method
+        """Beans attribute getter method.
 
         Gets the beans attribute of the class.
 
         Returns:
-            True if the entree has beans; 
+            True if the entree has beans;
             False if not
         """
         return self.__beans
 
     @beans.setter
     def beans(self, value: bool) -> None:
-        """Beans attribute setter method
+        """Beans attribute setter method.
 
-        Sets the beans attribute of the class to 
+        Sets the beans attribute of the class to
         the desired setting.
 
-        Args: 
+        Args:
             value: Boolean describing ingredient
             setting
         """
@@ -216,9 +218,9 @@ class MonopolyBowl:
 
     @property
     def instructions(self) -> List[str]:
-        """Shows the list of instructions
+        """Shows the list of instructions.
 
-        This method will return a list of the 
+        This method will return a list of the
         special instructions given to the entree.
 
         Returns:
@@ -236,7 +238,7 @@ class MonopolyBowl:
         return ingredients.copy()
 
     def __str__(self) -> str:
-        """String overide method
+        """String overide method.
 
         Creates a string of the entree
         menu item.
@@ -247,7 +249,7 @@ class MonopolyBowl:
         return "Clue Chili on {}".format(self.__base)
 
     def __eq__(self, value: object) -> bool:
-        """Equals overide method
+        """Equals overide method.
 
         Checks to see if two menu items are equal.
 
@@ -255,14 +257,14 @@ class MonopolyBowl:
             value: Object representing an entree item
 
         Returns:
-            True if items are equal; 
+            True if items are equal;
             False if not
         """
         if isinstance(value, MonopolyBowl):
-            return (self.__base == value.base and 
+            return (self.__base == value.base and
                     self.__toppings == value.toppings and
-                    self.__spicy_beef == value.spicy_beef and 
-                    self.__crispy_chicken == value.crispy_chicken and 
+                    self.__spicy_beef == value.spicy_beef and
+                    self.__crispy_chicken == value.crispy_chicken and
                     self.__veggies == value.veggies and
                     self.__beans == value.beans)
         else:

@@ -1,4 +1,4 @@
-"""CatanSkewers class
+"""CatanSkewers class.
 
 This is a class that creates the Catan Skewers
 side menu item.
@@ -6,19 +6,18 @@ side menu item.
 Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
-from typing import List, Set
 from src.gamegrub.data.enums.Size import Size
 
 
 class CatanSkewers:
-    """Represents the Catan Skewers side 
+    """Represents the Catan Skewers side.
 
-    This class builds the CatanSkewers side 
+    This class builds the CatanSkewers side
     menu item.
     """
 
     def __init__(self) -> None:
-        """Initializes the class
+        """Initializes the class.
 
         Creates the CatanSkewers object with
         preset price, calories, and size.
@@ -29,7 +28,7 @@ class CatanSkewers:
 
     @property
     def size(self) -> Size:
-        """Size attibute getter method
+        """Size attibute getter method.
 
         Gets the size attribute of the class.
 
@@ -40,12 +39,12 @@ class CatanSkewers:
 
     @size.setter
     def size(self, value: Size) -> None:
-        """Size attibute setter method
+        """Size attibute setter method.
 
-        Sets the size, price, and calories 
+        Sets the size, price, and calories
         attribute of the class to the desired Size.
 
-        Args: 
+        Args:
             value: The desired Size from Size enum class
         """
         self.__size = value
@@ -61,7 +60,7 @@ class CatanSkewers:
 
     @property
     def price(self) -> float:
-        """Price attibute getter method
+        """Price attibute getter method.
 
         Gets the price attribute of the class.
 
@@ -72,7 +71,7 @@ class CatanSkewers:
 
     @property
     def calories(self) -> int:
-        """Calories attribute getter method
+        """Calories attribute getter method.
 
         Gets the calories attribute of the class.
 
@@ -82,7 +81,7 @@ class CatanSkewers:
         return self.__calories
 
     def __str__(self) -> str:
-        """String overide method
+        """String overide method.
 
         Creates a string of the side
         menu item.
@@ -93,7 +92,7 @@ class CatanSkewers:
         return "{} Catan Skewers".format(self.__size)
 
     def __eq__(self, value: object) -> bool:
-        """Equals overide method
+        """Equals overide method.
 
         Checks to see if two menu items are equal.
 
@@ -101,7 +100,7 @@ class CatanSkewers:
             value: Object representing a side item
 
         Returns:
-            True if items are equal; 
+            True if items are equal;
             False if not
         """
         if isinstance(value, CatanSkewers):

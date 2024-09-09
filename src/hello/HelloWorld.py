@@ -7,16 +7,6 @@ Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
 from typing import List
-from src.gamegrub.data.enums.Base import Base
-from src.gamegrub.data.enums.Size import Size
-from src.gamegrub.data.enums.Toppings import Toppings
-from src.gamegrub.data.entrees.Clue import ClueChili
-from src.gamegrub.data.entrees.Jenga import JengaNachos
-from src.gamegrub.data.entrees.Yahtzee import YahtzeePoke
-from src.gamegrub.data.entrees.Chess import ChessChickenParm
-from src.gamegrub.data.entrees.Monopoly import MonopolyBowl
-from src.gamegrub.data.sides.Dice import PotatoDice
-from src.gamegrub.data.drinks.Candy import CandyLandShake
 
 
 class HelloWorld:
@@ -38,14 +28,3 @@ class HelloWorld:
             print("Hello {}".format(args[1]))
         else:
             print("Hello World")
-
-        
-        drink: CandyLandShake = CandyLandShake()
-        print(drink)
-        print(drink.price)
-        print(drink.calories)
-        
-        drink.chocolate = False
-        drink.vanilla = True
-        drink.strawberry = True
-        print(drink.instructions)
