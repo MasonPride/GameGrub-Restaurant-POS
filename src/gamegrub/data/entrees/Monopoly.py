@@ -246,7 +246,7 @@ class MonopolyBowl:
         Returns:
             str representing the entree on a base
         """
-        return "Clue Chili on {}".format(self.__base)
+        return "Monopoly Bowl on {}".format(self.__base)
 
     def __eq__(self, value: object) -> bool:
         """Equals overide method.
