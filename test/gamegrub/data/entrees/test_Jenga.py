@@ -13,7 +13,7 @@ from src.gamegrub.data.entrees.Clue import ClueChili
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 
-class TestChess():
+class TestJenga():
     """Test class for 'srs.gamegrub.data.entrees.Jenga.py'."""
 
     def test_instructions_size_is_zero_on_init(self):

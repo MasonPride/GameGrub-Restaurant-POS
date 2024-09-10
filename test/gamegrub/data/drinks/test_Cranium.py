@@ -13,7 +13,7 @@ from src.gamegrub.data.drinks.Cranium import CraniumCoffee
 from src.gamegrub.data.enums.Size import Size
 
 
-class TestCandy():
+class TestCranium():
     """Test class for 'srs.gamegrub.data.drinks.Cranium.py'."""
 
     def test_size_default_is_junior(self):
