@@ -24,7 +24,7 @@ class Drink(Item):
         initializes the commmon attributes for 
         entrees.
         """
-        self.__size: Size = Size.JUNIOR
+        self._size: Size = Size.JUNIOR
 
     @property
     def size(self) -> Size:
@@ -35,7 +35,7 @@ class Drink(Item):
         Returns:
             Size attrbute of entree
         """
-        return self.__size
+        return self._size
 
     @size.setter
     def size(self, value: Size) -> None:
@@ -43,4 +43,4 @@ class Drink(Item):
 
         Sets the base attribute of entree.
         """
-        self.__size = value
+        self._size = value

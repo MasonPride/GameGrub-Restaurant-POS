@@ -9,9 +9,10 @@ Version: 0.1
 
 from typing import List
 from src.gamegrub.data.enums.Size import Size
+from src.gamegrub.data.drinks.Drink import Drink
 
 
-class CandyLandShake:
+class CandyLandShake(Drink):
     """Represents the Candy Land Shake drink.
 
     This class builds the CandyLandShake drink
@@ -24,44 +25,12 @@ class CandyLandShake:
         Creates the CandyLandShake object with
         preset price, calories, size, and topping attributes.
         """
-        self.__size: Size = Size.JUNIOR
+        super().__init__()
         self.__price: float = 5.75
         self.__calories: int = 770
         self.__chocolate: bool = True
         self.__vanilla: bool = False
         self.__strawberry: bool = False
-
-    @property
-    def size(self) -> Size:
-        """Size attibute getter method.
-
-        Gets the size attribute of the class.
-
-        Returns:
-            size attribute of the class; of type Size
-        """
-        return self.__size
-
-    @size.setter
-    def size(self, value: Size) -> None:
-        """Size attibute setter method.
-
-        Sets the size, price, and calories
-        attribute of the class to the desired Size.
-
-        Args:
-            value: The desired Size from Size enum class
-        """
-        self.__size = value
-        if value == Size.CLASSIC:
-            self.__price = 7.45
-            self.__calories = 1215
-        elif value == Size.WINNER:
-            self.__price = 9.55
-            self.__calories = 1465
-        else:
-            self.__price = 5.75
-            self.__calories = 770
 
     @property
     def price(self) -> float:
@@ -72,6 +41,12 @@ class CandyLandShake:
         Returns:
             price attribute of the object; of type float
         """
+        if self.size == Size.CLASSIC:
+            self.__price = 7.45
+        elif self.size == Size.WINNER:
+            self.__price = 9.55
+        else:
+            self.__price = 5.75
         return self.__price
 
     @property
@@ -83,6 +58,12 @@ class CandyLandShake:
         Returns:
             calories attribute of the object; of type int
         """
+        if self.size == Size.CLASSIC:
+            self.__calories = 1215
+        elif self.size == Size.WINNER:
+            self.__calories = 1465
+        else:
+            self.__calories = 770
         return self.__calories
 
     @property
@@ -188,7 +169,7 @@ class CandyLandShake:
         Returns:
             str representing the size and drink
         """
-        return "{} Candy Land Shake".format(self.__size)
+        return "{} Candy Land Shake".format(self.size)
 
     def __eq__(self, value: object) -> bool:
         """Equals overide method.
@@ -203,7 +184,7 @@ class CandyLandShake:
             False if not
         """
         if isinstance(value, CandyLandShake):
-            return (self.__size == value.size and
+            return (self.size == value.size and
                     self.__price == value.price and
                     self.__calories == value.calories and
                     self.__chocolate == value.chocolate and
