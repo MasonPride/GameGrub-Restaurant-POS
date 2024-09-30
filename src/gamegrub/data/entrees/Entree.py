@@ -10,6 +10,7 @@ Version: 0.1
 from typing import List, Set
 from src.gamegrub.data.Item import Item
 from src.gamegrub.data.enums.Base import Base
+from src.gamegrub.data.enums.Toppings import Toppings
 
 
 class Entree(Item):
@@ -25,8 +26,8 @@ class Entree(Item):
         initializes the commmon attributes for 
         entrees.
         """
-        self.__base: Base = Base.SPAGHETTI
-        self.__toppings: Set[Toppings] = {}
+        self.__base: Base = None
+        self.__toppings: Set[Toppings] = set()
 
     @property
     def base(self) -> Base:
@@ -58,3 +59,34 @@ class Entree(Item):
             of the object; a set containing the toppings
         """
         return self.__toppings.copy()
+
+    def add_topping(self, value: Toppings) -> None:
+        """Add toppings to object.
+
+        Adds a topping from the Toppings enum class
+        to the set of toppings of the object.
+
+        Args:
+            value: The desired topping from Toppings enum
+        """
+        self.__toppings.add(value)
+
+    def remove_topping(self, value: Toppings) -> None:
+        """Remove toppings from object.
+
+        Removes a topping from the toppings set
+
+        Args:
+            value: The desired topping from Toppings enum
+        """
+        if value in self.__toppings:
+            self.__toppings.remove(value)
+
+    def instructions(self) -> List[str]:
+        # create list
+        instructs: List[str] = list()
+        # add all toppings to list as strings
+        for topping in self.toppings:
+            instructs.append(str(topping))
+        # return list
+        return instructs

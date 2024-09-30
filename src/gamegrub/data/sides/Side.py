@@ -24,7 +24,7 @@ class Side(Item):
         initializes the commmon attributes for 
         entrees.
         """
-        self.__size: Size = Size.JUNIOR
+        self._size: Size = Size.JUNIOR
 
     @property
     def size(self) -> Size:
@@ -35,12 +35,26 @@ class Side(Item):
         Returns:
             Size attrbute of entree
         """
-        return self.__size
+        return self._size
 
     @size.setter
     def size(self, value: Size) -> None:
-        """Base setter.
+        """Size attibute setter method.
 
-        Sets the base attribute of entree.
+        Sets the size
+        attribute of the class to the desired Size.
+
+        Args:
+            value: The desired Size from Size enum class
         """
-        self.__size = value
+        self._size = value
+
+    @property
+    def instructions(self) -> List[str]:
+        """Instructions setter.
+
+        Returns:
+            List of instructions
+        """
+        instructions: List[str] = list()
+        return instructions

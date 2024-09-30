@@ -7,9 +7,10 @@ Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
 from src.gamegrub.data.enums.Size import Size
+from src.gamegrub.data.sides.Side import Side
 
 
-class PotatoDice:
+class PotatoDice(Side):
     """Represents the Potato Dice side.
 
     This class builds the PotatoDice side
@@ -22,41 +23,9 @@ class PotatoDice:
         Creates the PotatoDice object with
         preset price, calories, and size.
         """
-        self.__size: Size = Size.JUNIOR
+        super().__init__()
         self.__price: float = 2.75
         self.__calories: int = 350
-
-    @property
-    def size(self) -> Size:
-        """Size attibute getter method.
-
-        Gets the size attribute of the class.
-
-        Returns:
-            size attribute of the class; of type Size
-        """
-        return self.__size
-
-    @size.setter
-    def size(self, value: Size) -> None:
-        """Size attibute setter method.
-
-        Sets the size, price, and calories
-        attribute of the class to the desired Size.
-
-        Args:
-            value: The desired Size from Size enum class
-        """
-        self.__size = value
-        if value == Size.CLASSIC:
-            self.__price = 3.85
-            self.__calories = 475
-        elif value == Size.WINNER:
-            self.__price = 5.35
-            self.__calories = 795
-        else:
-            self.__price = 2.75
-            self.__calories = 350
 
     @property
     def price(self) -> float:
@@ -67,6 +36,12 @@ class PotatoDice:
         Returns:
             price attribute of the object; of type float
         """
+        if self.size == Size.CLASSIC:
+            self.__price = 3.85
+        elif self.size == Size.WINNER:
+            self.__price = 5.35
+        else:
+            self.__price = 2.75
         return self.__price
 
     @property
@@ -78,6 +53,12 @@ class PotatoDice:
         Returns:
             calories attribute of the object; of type int
         """
+        if self.size == Size.CLASSIC:
+            self.__calories = 475
+        elif self.size == Size.WINNER:
+            self.__calories = 795
+        else:
+            self.__calories = 350
         return self.__calories
 
     def __str__(self) -> str:
@@ -89,7 +70,7 @@ class PotatoDice:
         Returns:
             str representing the size and side item
         """
-        return "{} Potato Dice".format(self.__size)
+        return "{} Potato Dice".format(self.size)
 
     def __eq__(self, value: object) -> bool:
         """Equals overide method.
@@ -104,7 +85,7 @@ class PotatoDice:
             False if not
         """
         if isinstance(value, PotatoDice):
-            return (self.__size == value.size and
+            return (self.size == value.size and
                     self.__price == value.price and
                     self.__calories == value.calories)
         else:

@@ -15,9 +15,11 @@ from src.gamegrub.data.entrees.Monopoly import MonopolyBowl
 from src.gamegrub.data.entrees.Yahtzee import YahtzeePoke
 from src.gamegrub.data.drinks.Candy import CandyLandShake
 from src.gamegrub.data.drinks.Cranium import CraniumCoffee
+from src.gamegrub.data.drinks.Sorry import SorrySoda
 from src.gamegrub.data.sides.Catan import CatanSkewers
 from src.gamegrub.data.sides.Dice import PotatoDice
 from src.gamegrub.data.sides.Risk import RiskBites
+from typing import List
 
 
 class Menu():
@@ -117,8 +119,8 @@ class Menu():
         return sideList
 
     def fullmenu(self) -> List[Item]:
-        entrees = self.entrees
-        drinks = self.drinks
-        sides = self.sides
+        entrees = self.entrees()
+        drinks = self.drinks()
+        sides = self.sides()
         fullMenu = entrees + drinks + sides
         return fullMenu

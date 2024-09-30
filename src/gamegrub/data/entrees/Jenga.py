@@ -9,9 +9,10 @@ Version: 0.1
 from typing import List, Set
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
+from src.gamegrub.data.entrees.Entree import Entree
 
 
-class JengaNachos:
+class JengaNachos(Entree):
     """Represents the Jenga Nachos entree.
 
     This class builds the JengaNachos entree
@@ -25,71 +26,16 @@ class JengaNachos:
         preset price, calories, base, toppings,
         and ingredients.
         """
-        self.__base: Base = Base.CHIPS
-        self.__toppings: Set[Toppings] = {
-            Toppings.ONIONS, Toppings.CHEESE,
-            Toppings.SOUR_CREAM, Toppings.HOT_SAUCE,
-            Toppings.GUACAMOLE}
+        super().__init__()
+        self.base = Base.CHIPS
+        self.add_topping(Toppings.ONIONS)
+        self.add_topping(Toppings.CHEESE)
+        self.add_topping(Toppings.SOUR_CREAM)
+        self.add_topping(Toppings.HOT_SAUCE)
+        self.add_topping(Toppings.GUACAMOLE)
         self.__price: float = 9.85
         self.__spicy_beef: bool = True
         self.__beans: bool = True
-
-    @property
-    def base(self) -> Base:
-        """Base attribute getter method.
-
-        Gets the base attribute of the class.
-
-        Returns:
-            base attribute of the class; of type Base
-        """
-        return self.__base
-
-    @base.setter
-    def base(self, value: Base) -> None:
-        """Base attribute setter method.
-
-        Sets the base, price, and calories
-        attribute of the class to the desired Size.
-
-        Args:
-            value: The desired base from Base enum class
-        """
-        self.__base = value
-
-    @property
-    def toppings(self) -> Set[Toppings]:
-        """Toppings attribute getter method.
-
-        Gets the toppings attribute of the class.
-
-        Returns:
-            Shallow copy of toppings attribute
-            of the object; a set containing the toppings
-        """
-        return self.__toppings.copy()
-
-    def add_topping(self, value: Toppings) -> None:
-        """Add toppings to object.
-
-        Adds a topping from the Toppings enum class
-        to the set of toppings of the object.
-
-        Args:
-            value: The desired topping from Toppings enum
-        """
-        self.__toppings.add(value)
-
-    def remove_topping(self, value: Toppings) -> None:
-        """Remove toppings from object.
-
-        Removes a topping from the toppings set
-
-        Args:
-            value: The desired topping from Toppings enum
-        """
-        if value in self.__toppings:
-            self.__toppings.remove(value)
 
     @property
     def price(self) -> float:
@@ -101,7 +47,7 @@ class JengaNachos:
         Returns:
             price attribute of the object; of type float
         """
-        return self.__price + self.__base.amount
+        return self.__price + self.base.amount
 
     @property
     def calories(self) -> int:
@@ -190,7 +136,7 @@ class JengaNachos:
         Returns:
             str representing the entree on a base
         """
-        return "Jenga Nachos on {}".format(self.__base)
+        return "Jenga Nachos on {}".format(self.base)
 
     def __eq__(self, value: object) -> bool:
         """Equals overide method.
@@ -205,8 +151,8 @@ class JengaNachos:
             False if not
         """
         if isinstance(value, JengaNachos):
-            return (self.__base == value.base and
-                    self.__toppings == value.toppings and
+            return (self.base == value.base and
+                    self.toppings == value.toppings and
                     self.__spicy_beef == value.spicy_beef and
                     self.__beans == value.beans)
         else:

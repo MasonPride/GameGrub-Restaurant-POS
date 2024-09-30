@@ -13,7 +13,6 @@ class Item(ABC):
     This class creates the abstract methods to
     be used by menu items.
     """
-
     @classmethod
     def __subclasshook__(cls, subclass: type) -> bool:
         """Subclass hook.
