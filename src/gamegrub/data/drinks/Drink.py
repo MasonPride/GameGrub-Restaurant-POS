@@ -7,7 +7,6 @@ Author: Mason Pride
 Version: 0.1
 """
 
-from typing import List, Set
 from src.gamegrub.data.Item import Item
 from src.gamegrub.data.enums.Size import Size
 
@@ -19,16 +18,16 @@ class Drink(Item):
     be used by Drink items.
     """
     def __init__(self) -> None:
-        """initialize class.
+        """Initialize class.
 
-        initializes the commmon attributes for 
+        initializes the commmon attributes for
         entrees.
         """
         self._size: Size = Size.JUNIOR
 
     @property
     def size(self) -> Size:
-        """size getter.
+        """Size getter.
 
         Gets the size attribute of entree.
 

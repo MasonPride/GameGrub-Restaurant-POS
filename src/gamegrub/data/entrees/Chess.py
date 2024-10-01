@@ -6,7 +6,7 @@ menu item.
 Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
-from typing import List, Set
+from typing import List
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 from src.gamegrub.data.entrees.Entree import Entree
@@ -118,7 +118,7 @@ class ChessChickenParm(Entree):
             List of strings containing the special instructions
         """
         ingredients: List[str] = []
-        #ingredients: List[str] = super().instructions()
+        # ingredients: List[str] = super().instructions()
         if not self.__red_sauce:
             ingredients.append("Hold Red Sauce")
         if not self.__crispy_chicken:

@@ -6,7 +6,7 @@ menu item.
 Author: Mason Pride mtpride@ksu.edu
 Version: 0.1
 """
-from typing import List, Set
+from typing import List
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 from src.gamegrub.data.entrees.Entree import Entree
@@ -27,7 +27,7 @@ class ClueChili(Entree):
         and ingredients.
         """
         super().__init__()
-        self.base= Base.SPAGHETTI
+        self.base = Base.SPAGHETTI
         self.add_topping(Toppings.ONIONS)
         self.add_topping(Toppings.CHEESE)
         self.add_topping(Toppings.HOT_SAUCE)
@@ -171,7 +171,7 @@ class ClueChili(Entree):
             List of strings containing the special instructions
         """
         ingredients: List[str] = []
-        #ingredients: List[str] = super().instructions()
+        # ingredients: List[str] = super().instructions()
         if not self.__spicy_beef:
             ingredients.append("Hold Spicy Beef")
         if not self.__chili:

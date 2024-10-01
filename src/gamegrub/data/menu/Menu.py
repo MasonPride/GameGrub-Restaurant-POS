@@ -5,8 +5,6 @@ version: 0.1
 """
 
 from src.gamegrub.data.Item import Item
-from src.gamegrub.data.enums.Toppings import Toppings
-from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Size import Size
 from src.gamegrub.data.entrees.Chess import ChessChickenParm
 from src.gamegrub.data.entrees.Clue import ClueChili
@@ -19,6 +17,7 @@ from src.gamegrub.data.drinks.Sorry import SorrySoda
 from src.gamegrub.data.sides.Catan import CatanSkewers
 from src.gamegrub.data.sides.Dice import PotatoDice
 from src.gamegrub.data.sides.Risk import RiskBites
+from src.gamegrub.data.combo.ComboBuilder import ComboBuilder
 from typing import List
 
 
@@ -28,99 +27,123 @@ class Menu():
     Class containing all menu items.
     """
     def entrees(self) -> List[Item]:
-        """entrees getter method.
+        """Entrees getter method.
 
         Displays all entree items
 
         Returns:
             List of Item elements of all entrees
         """
-        entreeList: List[Item] = []
+        entree_list: List[Item] = []
         chess = ChessChickenParm()
-        entreeList.append(chess)
+        entree_list.append(chess)
         clue = ClueChili()
-        entreeList.append(clue)
+        entree_list.append(clue)
         jenga = JengaNachos()
-        entreeList.append(jenga)
+        entree_list.append(jenga)
         monopoly = MonopolyBowl()
-        entreeList.append(monopoly)
+        entree_list.append(monopoly)
         yahtzee = YahtzeePoke()
-        entreeList.append(yahtzee)
-        return entreeList
+        entree_list.append(yahtzee)
+        return entree_list
 
     def drinks(self) -> List[Item]:
-        """drinks getter method.
+        """Drinks getter method.
 
         Displays all drink items
 
         Returns:
             List of Item elements of all drinks
         """
-        drinkList: List[Item] = []
-        candyJ = CandyLandShake()
-        candyC = CandyLandShake()
-        candyC.size = Size.CLASSIC
-        candyW = CandyLandShake()
-        candyW.size = Size.WINNER
-        drinkList.append(candyJ)
-        drinkList.append(candyC)
-        drinkList.append(candyW)
-        craniumJ = CraniumCoffee()
-        craniumC = CraniumCoffee()
-        craniumC.size = Size.CLASSIC
-        craniumW = CraniumCoffee()
-        craniumW.size = Size.WINNER
-        drinkList.append(craniumJ)
-        drinkList.append(craniumC)
-        drinkList.append(craniumW)
-        sorryJ = SorrySoda()
-        sorryC = SorrySoda()
-        sorryC.size = Size.CLASSIC
-        sorryW = SorrySoda()
-        sorryW.size = Size.WINNER
-        drinkList.append(sorryJ)
-        drinkList.append(sorryC)
-        drinkList.append(sorryW)
-        return drinkList
+        drink_list: List[Item] = []
+        candy_j = CandyLandShake()
+        candy_c = CandyLandShake()
+        candy_c.size = Size.CLASSIC
+        candy_w = CandyLandShake()
+        candy_w.size = Size.WINNER
+        drink_list.append(candy_j)
+        drink_list.append(candy_c)
+        drink_list.append(candy_w)
+        cranium_j = CraniumCoffee()
+        cranium_c = CraniumCoffee()
+        cranium_c.size = Size.CLASSIC
+        cranium_w = CraniumCoffee()
+        cranium_w.size = Size.WINNER
+        drink_list.append(cranium_j)
+        drink_list.append(cranium_c)
+        drink_list.append(cranium_w)
+        sorry_j = SorrySoda()
+        sorry_c = SorrySoda()
+        sorry_c.size = Size.CLASSIC
+        sorry_w = SorrySoda()
+        sorry_w.size = Size.WINNER
+        drink_list.append(sorry_j)
+        drink_list.append(sorry_c)
+        drink_list.append(sorry_w)
+        return drink_list
 
     def sides(self) -> List[Item]:
-        """sides getter method.
+        """Sides getter method.
 
         Displays all side items
 
         Returns:
             List of Item elements of all sides
         """
-        sideList: List[Item] = []
-        catanJ = CatanSkewers()
-        catanC = CatanSkewers()
-        catanC.size = Size.CLASSIC
-        catanW = CatanSkewers()
-        catanW.size = Size.WINNER
-        sideList.append(catanJ)
-        sideList.append(catanC)
-        sideList.append(catanW)
-        potatoJ = PotatoDice()
-        potatoC = PotatoDice()
-        potatoC.size = Size.CLASSIC
-        potatoW = PotatoDice()
-        potatoW.size = Size.WINNER
-        sideList.append(potatoJ)
-        sideList.append(potatoC)
-        sideList.append(potatoW)
-        riskJ = RiskBites()
-        riskC = RiskBites()
-        riskC.size = Size.CLASSIC
-        riskW = RiskBites()
-        riskW.size = Size.WINNER
-        sideList.append(riskJ)
-        sideList.append(riskC)
-        sideList.append(riskW)
-        return sideList
+        side_list: List[Item] = []
+        catan_j = CatanSkewers()
+        catan_c = CatanSkewers()
+        catan_c.size = Size.CLASSIC
+        catan_w = CatanSkewers()
+        catan_w.size = Size.WINNER
+        side_list.append(catan_j)
+        side_list.append(catan_c)
+        side_list.append(catan_w)
+        potato_j = PotatoDice()
+        potato_c = PotatoDice()
+        potato_c.size = Size.CLASSIC
+        potato_w = PotatoDice()
+        potato_w.size = Size.WINNER
+        side_list.append(potato_j)
+        side_list.append(potato_c)
+        side_list.append(potato_w)
+        risk_j = RiskBites()
+        risk_c = RiskBites()
+        risk_c.size = Size.CLASSIC
+        risk_w = RiskBites()
+        risk_w.size = Size.WINNER
+        side_list.append(risk_j)
+        side_list.append(risk_c)
+        side_list.append(risk_w)
+        return side_list
+
+    @staticmethod
+    def combos(self) -> List[Item]:
+        """Combos getter.
+
+        Returns:
+            List of items representing all combos
+        """
+        combos: List[Item] = []
+        game_night = ComboBuilder().build_combo("Game Night")
+        combos.append(game_night)
+        roll_the_dice = ComboBuilder().build_combo("Roll the Dice")
+        combos.append(roll_the_dice)
+        big_appetite = ComboBuilder().build_combo("Big Appetite")
+        combos.append(big_appetite)
+        the_winner = ComboBuilder().build_combo("The Winner")
+        combos.append(the_winner)
+        return combos
 
     def fullmenu(self) -> List[Item]:
+        """Represents full menu.
+
+        Returns:
+            List of items representing the whole menu.
+        """
         entrees = self.entrees()
         drinks = self.drinks()
         sides = self.sides()
-        fullMenu = entrees + drinks + sides
-        return fullMenu
+        combos = self.combos()
+        full_menu = entrees + drinks + sides + combos
+        return full_menu

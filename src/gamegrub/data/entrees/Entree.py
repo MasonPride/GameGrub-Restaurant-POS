@@ -21,9 +21,9 @@ class Entree(Item):
     """
 
     def __init__(self) -> None:
-        """initialize class.
+        """Initialize class.
 
-        initializes the commmon attributes for 
+        Initializes the commmon attributes for
         entrees.
         """
         self.__base: Base = None
@@ -83,6 +83,13 @@ class Entree(Item):
             self.__toppings.remove(value)
 
     def instructions(self) -> List[str]:
+        """Gets instructions.
+
+        Helps construct instructions list.
+
+        Returns:
+            List of strings of instructions
+        """
         # create list
         instructs: List[str] = list()
         # add all toppings to list as strings

@@ -4,8 +4,9 @@ Author: Mason Pride
 Version: 0.1
 """
 
-from abc import ABCMeta, ABC, abstractmethod
+from abc import ABC, abstractmethod
 from typing import List
+
 
 class Item(ABC):
     """Item class.
@@ -20,12 +21,11 @@ class Item(ABC):
         Makes sure the item is able to inherit.
         """
         if cls is Item:
-            attrs: List[str] = []
             callables: List[str] = ['price', 'calories', 'instructions']
             ret = True
             for call in callables:
                 ret = ret and (hasattr(subclass, call) and
-                                callable(getattr(subclass, call)))
+                               callable(getattr(subclass, call)))
             return ret
         else:
             return NotImplemented
