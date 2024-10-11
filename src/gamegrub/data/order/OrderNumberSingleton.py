@@ -14,9 +14,9 @@ class OrderNumberSingleton:
 
     def __new__(cls) -> "OrderNumberSingleton":
         """New overide."""
-        if cls._insstance is None:
+        if cls._instance is None:
             cls._instance = super().__new__(cls)
-        return cls._insstance
+        return cls._instance
 
     def __init__(self):
         """Constructs the singleton."""

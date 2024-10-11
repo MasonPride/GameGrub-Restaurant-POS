@@ -14,7 +14,7 @@ from src.gamegrub.data.order.OrderNumberSingleton import OrderNumberSingleton
 class Order(Iterable[Item]):
     """Iterator class for items."""
 
-    __tax_rate: float = .115
+    _tax_rate: float = .115
 
     def __init__(self) -> None:
         """Constructor class."""
@@ -82,7 +82,7 @@ class Order(Iterable[Item]):
         Returns:
             float representing the tax rate
         """
-        return cls.__tax_rate
+        return cls._tax_rate
 
     @classmethod
     def set_tax_rate(cls, value: float) -> None:
@@ -92,7 +92,9 @@ class Order(Iterable[Item]):
             value: new tax rate being set
         """
         if value >= 0.0 and value <= 1.0:
-            cls.__tax_rate = value
+            cls._tax_rate = value
+        else:
+            raise TypeError("Not a valid float")
 
     @property
     def subtotal(self) -> float:
@@ -104,9 +106,10 @@ class Order(Iterable[Item]):
         Returns:
             float representing subtotal price
         """
-        result: float = 0
+        result: float = 0.0
         for item in self.__ordered_items:
             result += item.price
+        return result
 
     @property
     def tax(self) -> float:
@@ -117,7 +120,7 @@ class Order(Iterable[Item]):
         Returns:
             float representing tax
         """
-        return self.subtotal * self.__class__.get_tax_rate
+        return self.subtotal * self.__class__().get_tax_rate()
 
     @property
     def total(self) -> float:

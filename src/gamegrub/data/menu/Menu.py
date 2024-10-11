@@ -118,7 +118,7 @@ class Menu():
         return side_list
 
     @staticmethod
-    def combos(self) -> List[Item]:
+    def combos() -> List[Item]:
         """Combos getter.
 
         Returns:
