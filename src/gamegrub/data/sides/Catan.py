@@ -90,3 +90,8 @@ class CatanSkewers(Side):
                     self.__calories == value.calories)
         else:
             return False
+
+    @property
+    def name(self) -> str:
+        """Getter for name."""
+        return "Catan Skewers"

@@ -90,3 +90,8 @@ class RiskBites(Side):
                     self.__calories == value.calories)
         else:
             return False
+
+    @property
+    def name(self) -> str:
+        """Getter for name."""
+        return "Risk Bites"

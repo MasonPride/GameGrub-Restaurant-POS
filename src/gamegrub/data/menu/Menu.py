@@ -26,7 +26,8 @@ class Menu():
 
     Class containing all menu items.
     """
-    def entrees(self) -> List[Item]:
+    @staticmethod
+    def entrees() -> List[Item]:
         """Entrees getter method.
 
         Displays all entree items
@@ -47,7 +48,8 @@ class Menu():
         entree_list.append(yahtzee)
         return entree_list
 
-    def drinks(self) -> List[Item]:
+    @staticmethod
+    def drinks() -> List[Item]:
         """Drinks getter method.
 
         Displays all drink items
@@ -82,7 +84,8 @@ class Menu():
         drink_list.append(sorry_w)
         return drink_list
 
-    def sides(self) -> List[Item]:
+    @staticmethod
+    def sides() -> List[Item]:
         """Sides getter method.
 
         Displays all side items

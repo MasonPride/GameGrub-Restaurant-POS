@@ -185,3 +185,8 @@ class YahtzeePoke(Entree):
                     self.__seaweed == value.seaweed)
         else:
             return False
+
+    @property
+    def name(self) -> str:
+        """Getter for name."""
+        return "Yahtzee Poke"

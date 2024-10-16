@@ -192,3 +192,8 @@ class CandyLandShake(Drink):
                     self.__strawberry == value.strawberry)
         else:
             return False
+
+    @property
+    def name(self) -> str:
+        """Getter for name."""
+        return "The CandyLandShake"

@@ -216,3 +216,8 @@ class MonopolyBowl(Entree):
                     self.__beans == value.beans)
         else:
             return False
+
+    @property
+    def name(self) -> str:
+        """Getter for name."""
+        return "Monopoly Bowl"

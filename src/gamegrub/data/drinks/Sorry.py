@@ -221,3 +221,8 @@ class SorrySoda(Drink):
                     self.__orange == value.orange)
         else:
             return False
+
+    @property
+    def name(self) -> str:
+        """Getter for name."""
+        return "Sorry Soda"

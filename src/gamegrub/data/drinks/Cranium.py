@@ -221,3 +221,8 @@ class CraniumCoffee(Drink):
                     self.__mint == value.mint)
         else:
             return False
+
+    @property
+    def name(self) -> str:
+        """Getter for name."""
+        return "Cranium Coffee"

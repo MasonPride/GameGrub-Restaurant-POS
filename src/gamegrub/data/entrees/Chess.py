@@ -155,3 +155,8 @@ class ChessChickenParm(Entree):
                     self.__crispy_chicken == value.crispy_chicken)
         else:
             return False
+
+    @property
+    def name(self) -> str:
+        """Getter for name."""
+        return "Chess Chicken Parm"
