@@ -1,7 +1,6 @@
 """Chess Chicken Parm Panel class."""
 import tkinter as tk
 from tkinter import ttk
-from src.gamegrub.data.entrees.Chess import ChessChickenParm
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 
@@ -27,11 +26,16 @@ class ChessPanel(tk.Frame):
         base_combo.grid(row=1, column=1, padx=2, pady=2, sticky="W")
 
         self.__red_sauce = tk.BooleanVar(value=bool(self.__item.red_sauce))
-        red_sauce = tk.Checkbutton(master=self, text="Red Sauce", variable=self.__red_sauce, onvalue=True, offvalue=False)
+        red_sauce = tk.Checkbutton(master=self, text="Red Sauce",
+                                   variable=self.__red_sauce,
+                                   onvalue=True, offvalue=False)
         red_sauce.grid(row=2, column=1, padx=2, pady=2, sticky="W")
 
-        self.__crispy_chicken = tk.BooleanVar(value=bool(self.__item.crispy_chicken))
-        crispy_chicken = tk.Checkbutton(master=self, text="Crispy Chicken", variable=self.__crispy_chicken, onvalue=True, offvalue=False)
+        self.__crispy_chicken = tk.BooleanVar(value=bool(
+                                              self.__item.crispy_chicken))
+        crispy_chicken = tk.Checkbutton(master=self, text="Crispy Chicken",
+                                        variable=self.__crispy_chicken,
+                                        onvalue=True, offvalue=False)
         crispy_chicken.grid(row=3, column=1, padx=2, pady=2, sticky="W")
 
         top_label = tk.Label(master=self, text="Toppings")
@@ -40,14 +44,18 @@ class ChessPanel(tk.Frame):
         i = 5
         self.__toppings = dict()
         for t in Toppings:
-            self.__toppings[t] = tk.BooleanVar(value=(t in self.__item.toppings))
-            check = tk.Checkbutton(master=self, text=str(t), variable=self.__toppings[t], onvalue=True, offvalue=False)
+            self.__toppings[t] = tk.BooleanVar(value=(
+                                               t in self.__item.toppings))
+            check = tk.Checkbutton(master=self, text=str(t),
+                                   variable=self.__toppings[t],
+                                   onvalue=True, offvalue=False)
             check.grid(row=i, column=1, padx=2, pady=2, sticky="W")
-            i +=1 
-        
+            i += 1
+
         self.grid_rowconfigure(i, weight=1)
-        save = tk.Button(master=self, text="Save", command=lambda: self.action_performed("save"))
-        save.grid(row = i, column = 1, sticky="NEW")
+        save = tk.Button(master=self, text="Save",
+                         command=lambda: self.action_performed("save"))
+        save.grid(row=i, column=1, sticky="NEW")
 
     def action_performed(self, text):
         """Performs the save button action."""

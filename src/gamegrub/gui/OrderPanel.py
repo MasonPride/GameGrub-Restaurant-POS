@@ -7,6 +7,7 @@ Version: 0.1
 """
 import tkinter as tk
 
+
 class OrderPanel(tk.Frame):
     """Order Panel class."""
     def __init__(self, master) -> None:
@@ -24,15 +25,16 @@ class OrderPanel(tk.Frame):
         self.__order_num.grid(row=0, column=1, padx=2, pady=2, sticky="W")
 
         self.__order_list = tk.Listbox(master=self)
-        self.__order_list.grid(row=1, column=0, columnspan=2, padx=2, pady=2, sticky="NSEW")
+        self.__order_list.grid(row=1, column=0, columnspan=2,
+                               padx=2, pady=2, sticky="NSEW")
 
         edit_button = tk.Button(master=self, text="Edit")
-        edit_button.grid(row=2, column=0, columnspan=2, padx=2, pady=2, sticky="NSEW")
-
+        edit_button.grid(row=2, column=0, columnspan=2,
+                         padx=2, pady=2, sticky="NSEW")
 
         subtotal_label = tk.Label(master=self, text="Subtotal: $0.00")
         subtotal_label.grid(row=3, column=0, padx=2, pady=2, sticky="E")
         tax_label = tk.Label(master=self, text="Tax: $0.00")
-        tax_label.grid(row=4, column=0,padx=2, pady=2, sticky="E")
+        tax_label.grid(row=4, column=0, padx=2, pady=2, sticky="E")
         total_label = tk.Label(master=self, text="Total: $0.00")
         total_label.grid(row=5, column=0, padx=2, pady=2, sticky="E")

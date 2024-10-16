@@ -14,7 +14,7 @@ class PrimaryWindow(tk.Tk):
     """Primary Window class."""
 
     def __init__(self) -> None:
-        """PrimaryWindow constructor"""
+        """Primary Window constructor."""
         tk.Tk.__init__(self)
         self.minsize(width=1024, height=740)
         self.title("Game Grub")
@@ -30,9 +30,17 @@ class PrimaryWindow(tk.Tk):
         self.__sidebar.grid(row=0, column=1, padx=10, pady=10, sticky="NSEW")
 
     def load_menu_panel(self) -> None:
+        """Loads the menu panel."""
         self.load_panel(MenuPanel(self))
 
     def load_panel(self, panel):
+        """Load panel.
+
+        Loads the given panel.
+
+        Args:
+            panel: Panel to be loaded.
+        """
         if self.__main is not None:
             self.__main.destroy()
         self.__main = panel

@@ -31,10 +31,12 @@ class SidePanel(tk.Frame):
         size_combo.grid(row=1, column=1, padx=2, pady=2, sticky="W")
 
         self.grid_rowconfigure(2, weight=1)
-        save = tk.Button(master=self, text="Save", command=lambda: self.action_performed("save"))
-        save.grid(row = 2, column = 1, sticky="NEW")
+        save = tk.Button(master=self, text="Save", command=lambda:
+                         self.action_performed("save"))
+        save.grid(row=2, column=1, sticky="NEW")
 
     def action_performed(self, text):
+        """Action perfoormed on button."""
         print(text)
         if text == "save":
             self.__master.load_menu_panel()

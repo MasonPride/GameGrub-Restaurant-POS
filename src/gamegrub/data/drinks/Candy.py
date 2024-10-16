@@ -196,4 +196,4 @@ class CandyLandShake(Drink):
     @property
     def name(self) -> str:
         """Getter for name."""
-        return "The CandyLandShake"
+        return "Candy Land Shake"
