@@ -16,7 +16,7 @@ class PrimaryWindow(tk.Tk):
     def __init__(self) -> None:
         """Primary Window constructor."""
         tk.Tk.__init__(self)
-        self.minsize(width=1024, height=740)
+        self.minsize(width=700, height=400)
         self.title("Game Grub")
 
         self.grid_rowconfigure(0, weight=1)
