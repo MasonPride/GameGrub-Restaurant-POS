@@ -118,11 +118,12 @@ class ChessChickenParm(Entree):
             List of strings containing the special instructions
         """
         ingredients: List[str] = []
-        # ingredients: List[str] = super().instructions()
         if not self.__red_sauce:
             ingredients.append("Hold Red Sauce")
         if not self.__crispy_chicken:
             ingredients.append("Hold Crispy Chicken")
+        for item in super().instructions():
+            ingredients.append(item)
         return ingredients
 
     def __str__(self) -> str:

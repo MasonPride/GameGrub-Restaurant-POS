@@ -152,7 +152,9 @@ class YahtzeePoke(Entree):
             ingredients.append("Hold Veggies")
         if not self.__seaweed:
             ingredients.append("Hold Seaweed")
-        return ingredients.copy()
+        for item in super().instructions():
+            ingredients.append(item)
+        return ingredients
 
     def __str__(self) -> str:
         """String overide method.

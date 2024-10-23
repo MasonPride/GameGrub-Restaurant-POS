@@ -80,7 +80,7 @@ class Entree(Item):
             value: The desired topping from Toppings enum
         """
         if value in self.__toppings:
-            self.__toppings.remove(value)
+            self.__toppings.discard(value)
 
     def instructions(self) -> List[str]:
         """Gets instructions.

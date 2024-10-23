@@ -8,6 +8,7 @@ Version: 0.1
 import tkinter as tk
 from src.gamegrub.gui.MenuPanel import MenuPanel
 from src.gamegrub.gui.OrderPanel import OrderPanel
+from src.gamegrub.data.Item import Item
 
 
 class PrimaryWindow(tk.Tk):
@@ -45,3 +46,11 @@ class PrimaryWindow(tk.Tk):
             self.__main.destroy()
         self.__main = panel
         self.__main.grid(row=0, column=0, padx=10, pady=10, sticky="NSEW")
+
+    def save_item(self, item: Item) -> None:
+        """Saves item to sidebar.
+
+        Args:
+            item: Item to save.
+        """
+        self.__sidebar.save_item(item)

@@ -182,7 +182,9 @@ class MonopolyBowl(Entree):
             ingredients.append("Hold Veggies")
         if not self.__beans:
             ingredients.append("Hold Beans")
-        return ingredients.copy()
+        for item in super().instructions():
+            ingredients.append(item)
+        return ingredients
 
     def __str__(self) -> str:
         """String overide method.
