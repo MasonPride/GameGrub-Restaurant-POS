@@ -4,9 +4,10 @@ from tkinter import ttk
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 from src.gamegrub.data.entrees.Jenga import JengaNachos
+from src.gamegrub.gui.entrees.EntreePanel import EntreePanel
 
 
-class JengaPanel(tk.Frame):
+class JengaPanel(EntreePanel):
     """Jenga Panel class."""
     def __init__(self, master, item: JengaNachos = None) -> None:
         """Jenga Panel constructor."""

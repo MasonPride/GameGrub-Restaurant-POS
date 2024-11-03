@@ -11,22 +11,7 @@ from typing import Dict
 from src.gamegrub.data.Item import Item
 from src.gamegrub.data.sides.Side import Side
 from src.gamegrub.gui.sides.SidePanel import SidePanel
-from src.gamegrub.data.drinks.Candy import CandyLandShake
-from src.gamegrub.gui.drinks.CandyPanel import CandyPanel
-from src.gamegrub.data.drinks.Sorry import SorrySoda
-from src.gamegrub.gui.drinks.SorryPanel import SorryPanel
-from src.gamegrub.data.drinks.Cranium import CraniumCoffee
-from src.gamegrub.gui.drinks.CraniumPanel import CraniumPanel
-from src.gamegrub.data.entrees.Chess import ChessChickenParm
-from src.gamegrub.gui.entrees.ChessPanel import ChessPanel
-from src.gamegrub.data.entrees.Clue import ClueChili
-from src.gamegrub.gui.entrees.CluePanel import CluePanel
-from src.gamegrub.data.entrees.Jenga import JengaNachos
-from src.gamegrub.gui.entrees.JengaPanel import JengaPanel
-from src.gamegrub.data.entrees.Yahtzee import YahtzeePoke
-from src.gamegrub.gui.entrees.YahtzeePanel import YahtzeePanel
-from src.gamegrub.data.entrees.Monopoly import MonopolyBowl
-from src.gamegrub.gui.entrees.MonopolyPanel import MonopolyPanel
+from src.gamegrub.gui.PanelFactory import PanelFactory
 
 
 class OrderPanel(tk.Frame):
@@ -80,6 +65,16 @@ class OrderPanel(tk.Frame):
         total_label = tk.Label(master=self, text="Total: $0.00")
         total_label.grid(row=5, column=0, padx=2, pady=2, sticky="E")
 
+        new_button = tk.Button(master=self, text="New Order",
+                            command=lambda:
+                            self.action_performed("new"))
+        new_button.grid(row=6, column=0, sticky="NSEW")
+
+        checkout_button = tk.Button(master=self, text="Checkout",
+                                 command=lambda:
+                                 self.action_performed("checkout"))
+        checkout_button.grid(row=6, column=1, sticky="NSEW")
+
     def action_performed(self, text: str) -> None:
         """Handle button actions."""
         print(text)
@@ -89,25 +84,8 @@ class OrderPanel(tk.Frame):
                 while node not in self.__items:
                     node = self.__order_list.parent(node)
                 item: Item = self.__items[node]
-                if isinstance(item, Side):
-                    self.__master.load_panel(SidePanel(self.__master, item))
-                elif isinstance(item, CandyLandShake):
-                    self.__master.load_panel(CandyPanel(self.__master, item))
-                elif isinstance(item, SorrySoda):
-                    self.__master.load_panel(SorryPanel(self.__master, item))
-                elif isinstance(item, CraniumCoffee):
-                    self.__master.load_panel(CraniumPanel(self.__master, item))
-                elif isinstance(item, ChessChickenParm):
-                    self.__master.load_panel(ChessPanel(self.__master, item))
-                elif isinstance(item, ClueChili):
-                    self.__master.load_panel(CluePanel(self.__master, item))
-                elif isinstance(item, JengaNachos):
-                    self.__master.load_panel(JengaPanel(self.__master, item))
-                elif isinstance(item, YahtzeePoke):
-                    self.__master.load_panel(YahtzeePanel(self.__master, item))
-                elif isinstance(item, MonopolyBowl):
-                    self.__master.load_panel(MonopolyPanel(
-                                             self.__master, item))
+                panel = PanelFactory.get_panel_by_item(self.__master, item)
+                self.__master.load_panel(panel)
         elif text == "delete":
             node = self.__order_list.focus()
             if node:
@@ -115,6 +93,8 @@ class OrderPanel(tk.Frame):
                     node = self.__order_list.parent(node)
                 del self.__items[node]
                 self.__order_list.delete(node)
+        elif text == "new":
+            pass
 
     def save_item(self, item: Item) -> None:
         """Save item method.

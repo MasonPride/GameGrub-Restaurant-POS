@@ -4,9 +4,10 @@ from tkinter import ttk
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 from src.gamegrub.data.entrees.Clue import ClueChili
+from src.gamegrub.gui.entrees.EntreePanel import EntreePanel
 
 
-class CluePanel(tk.Frame):
+class CluePanel(EntreePanel):
     """Clue Panel class."""
     def __init__(self, master, item: ClueChili = None) -> None:
         """Clue Panel constructor."""

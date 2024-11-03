@@ -9,9 +9,10 @@ import tkinter as tk
 from src.gamegrub.gui.MenuPanel import MenuPanel
 from src.gamegrub.gui.OrderPanel import OrderPanel
 from src.gamegrub.data.Item import Item
+from src.gamegrub.gui.ParentPanel import ParentPanel
 
 
-class PrimaryWindow(tk.Tk):
+class PrimaryWindow(tk.Tk, ParentPanel):
     """Primary Window class."""
 
     def __init__(self) -> None:

@@ -9,9 +9,10 @@ import tkinter as tk
 from tkinter import ttk
 from src.gamegrub.data.enums.Size import Size
 from src.gamegrub.data.drinks.Cranium import CraniumCoffee
+from src.gamegrub.gui.drinks.DrinkPanel import DrinkPanel
 
 
-class CraniumPanel(tk.Frame):
+class CraniumPanel(DrinkPanel):
     """Cranium panel class."""
     def __init__(self, master, item: CraniumCoffee = None) -> None:
         """Cranium panel constructor."""

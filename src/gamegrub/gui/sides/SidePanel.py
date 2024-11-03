@@ -8,11 +8,13 @@ Version: 0.1
 import tkinter as tk
 from tkinter import ttk
 from src.gamegrub.data.enums.Size import Size
+from src.gamegrub.data.sides.Side import Side
+from src.gamegrub.gui.sides.SideBasePanel import SideBasePanel
 
 
-class SidePanel(tk.Frame):
+class SidePanel(SideBasePanel):
     """Side frame class."""
-    def __init__(self, master, item) -> None:
+    def __init__(self, master, item: Side) -> None:
         """Side panel constructor."""
         self.__master = master
         tk.Frame.__init__(self, master=self.__master)

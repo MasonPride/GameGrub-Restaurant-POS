@@ -4,9 +4,10 @@ from tkinter import ttk
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 from src.gamegrub.data.entrees.Yahtzee import YahtzeePoke
+from src.gamegrub.gui.entrees.EntreePanel import EntreePanel
 
 
-class YahtzeePanel(tk.Frame):
+class YahtzeePanel(EntreePanel):
     """Yahtzee Panel class."""
     def __init__(self, master, item: YahtzeePoke = None) -> None:
         """Yahtzee Panel constructor."""

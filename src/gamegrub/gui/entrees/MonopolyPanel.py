@@ -4,9 +4,10 @@ from tkinter import ttk
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 from src.gamegrub.data.entrees.Monopoly import MonopolyBowl
+from src.gamegrub.gui.entrees.EntreePanel import EntreePanel
 
 
-class MonopolyPanel(tk.Frame):
+class MonopolyPanel(EntreePanel):
     """Monopoly Panel class."""
     def __init__(self, master, item: MonopolyBowl = None) -> None:
         """Monopoly Panel constructor."""

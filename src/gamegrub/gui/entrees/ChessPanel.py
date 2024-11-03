@@ -4,9 +4,10 @@ from tkinter import ttk
 from src.gamegrub.data.enums.Base import Base
 from src.gamegrub.data.enums.Toppings import Toppings
 from src.gamegrub.data.entrees.Chess import ChessChickenParm
+from src.gamegrub.gui.entrees.EntreePanel import EntreePanel
 
 
-class ChessPanel(tk.Frame):
+class ChessPanel(EntreePanel):
     """Chess Panel class."""
     def __init__(self, master, item: ChessChickenParm = None) -> None:
         """Chess Panel constructor."""

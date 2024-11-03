@@ -9,9 +9,10 @@ import tkinter as tk
 from tkinter import ttk
 from src.gamegrub.data.enums.Size import Size
 from src.gamegrub.data.drinks.Candy import CandyLandShake
+from src.gamegrub.gui.drinks.DrinkPanel import DrinkPanel
 
 
-class CandyPanel(tk.Frame):
+class CandyPanel(DrinkPanel):
     """Candy panel class."""
     def __init__(self, master, item: CandyLandShake = None) -> None:
         """Candy panel constructor."""

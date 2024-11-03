@@ -6,6 +6,7 @@ Author: Mason Pride
 Version: 0.1
 """
 import tkinter as tk
+from src.gamegrub.data.Item import Item
 from src.gamegrub.data.menu.Menu import Menu
 from src.gamegrub.data.sides.Side import Side
 from src.gamegrub.data.entrees.Entree import Entree
@@ -19,6 +20,9 @@ from src.gamegrub.data.drinks.Drink import Drink
 from src.gamegrub.gui.drinks.CandyPanel import CandyPanel
 from src.gamegrub.gui.drinks.CraniumPanel import CraniumPanel
 from src.gamegrub.gui.drinks.SorryPanel import SorryPanel
+from src.gamegrub.gui.ComboPanel import ComboPanel
+from src.gamegrub.data.combo.Combo import Combo
+from src.gamegrub.gui.PanelFactory import PanelFactory
 
 
 class MenuPanel(tk.Frame):
@@ -37,7 +41,7 @@ class MenuPanel(tk.Frame):
             self.grid_rowconfigure(i, weight=1)
             button = tk.Button(master=self, text=entree.name,
                                command=lambda x=entree.name,
-                               y=entree: self.load_entree_panel(x, y))
+                               y=entree: self.load_item_panel(x, y))
             button.grid(row=i, column=0, padx=2, pady=2, sticky="NSEW")
             i += 1
 
@@ -47,7 +51,7 @@ class MenuPanel(tk.Frame):
             button = tk.Button(master=self, text=str(
                                side.size + " " + side.name),
                                command=lambda x=side.name,
-                               y=side: self.load_side_panel(x, y))
+                               y=side: self.load_item_panel(x, y))
             button.grid(row=i, column=1, padx=2, pady=2, sticky="NSEW")
             i += 1
 
@@ -57,55 +61,48 @@ class MenuPanel(tk.Frame):
             button = tk.Button(master=self, text=str(
                                drink.size + " " + drink.name),
                                command=lambda x=drink.name,
-                               y=drink: self.load_drink_panel(x, y))
+                               y=drink: self.load_item_panel(x, y))
             button.grid(row=i, column=2, padx=2, pady=2, sticky="NSEW")
             i += 1
 
-    def load_entree_panel(self, text: str, entree: Entree) -> None:
-        """Loads the entree in their own panel.
+        i = 0
+        for combo in Menu.combos():
+            self.grid_rowconfigure(i, weight=1)
+            button = tk.Button(master=self, text=str(combo.name),
+                               command=lambda x=combo.name,
+                               y=combo: self.load_combo_panel(x, y))
+            button.grid(row=i, column=3, padx=2, pady=2, sticky="NSEW")
+            i += 1
+
+        self.grid_rowconfigure(0, weight=1)
+        c = Combo()
+        combo_button = tk.Button(master=self, text=str("Custom Combo"),
+                                 command=lambda x="Custom Combo":
+                                 self.load_combo_panel(x, c))
+        combo_button.grid(row=i, column=3, padx=2, pady=2, sticky="NSEW")
+
+
+    def load_item_panel(self, text: str, item: Item) -> None:
+        """Loads the item in their own panel.
 
         Args:
-            text: name of the entree.
-            entree: entree item.
+            text: name of the item.
+            item: item to load.
         """
         print(text)
-        if text == "Chess Chicken Parm":
-            self.__master.load_panel(ChessPanel(self.__master, entree))
-        if text == "Clue Chili":
-            self.__master.load_panel(CluePanel(self.__master, entree))
-        if text == "Jenga Nachos":
-            self.__master.load_panel(JengaPanel(self.__master, entree))
-        if text == "Monopoly Bowl":
-            self.__master.load_panel(MonopolyPanel(self.__master, entree))
-        if text == "Yahtzee Poke":
-            self.__master.load_panel(YahtzeePanel(self.__master, entree))
+        panel = PanelFactory.get_panel_by_item(self.__master, item)
+        self.__master.load_panel(panel)
 
-    def load_side_panel(self, text: str, side: Side) -> None:
-        """Loads the sides in their own panel.
+    def load_combo_panel(self, text: str, combo: Combo = None):
+        """Load Combo Panel method.
+
+        Loads combo panel on button press
 
         Args:
-            text: name of the side.
-            side: side item.
+            text: str of combo button.
         """
         print(text)
-        if text == "Potato Dice":
-            self.__master.load_panel(SidePanel(self.__master, side))
-        if text == "Risk Bites":
-            self.__master.load_panel(SidePanel(self.__master, side))
-        if text == "Catan Skewers":
-            self.__master.load_panel(SidePanel(self.__master, side))
-
-    def load_drink_panel(self, text: str, drink: Drink) -> None:
-        """Loads the drink in their own panel.
-
-        Args:
-            text: name of the drink.
-            drink: drink item.
-        """
-        print(text)
-        if text == "Candy Land Shake":
-            self.__master.load_panel(CandyPanel(self.__master, drink))
-        if text == "Cranium Coffee":
-            self.__master.load_panel(CraniumPanel(self.__master, drink))
-        if text == "Sorry Soda":
-            self.__master.load_panel(SorryPanel(self.__master, drink))
+        if text == "Custom Combo":
+            self.__master.load_panel(ComboPanel(self.__master))
+        else:
+            self.__master.load_panel(ComboPanel(self.__master, combo))
