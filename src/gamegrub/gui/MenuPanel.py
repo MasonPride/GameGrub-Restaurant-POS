@@ -8,18 +8,6 @@ Version: 0.1
 import tkinter as tk
 from src.gamegrub.data.Item import Item
 from src.gamegrub.data.menu.Menu import Menu
-from src.gamegrub.data.sides.Side import Side
-from src.gamegrub.data.entrees.Entree import Entree
-from src.gamegrub.gui.sides.SidePanel import SidePanel
-from src.gamegrub.gui.entrees.ChessPanel import ChessPanel
-from src.gamegrub.gui.entrees.CluePanel import CluePanel
-from src.gamegrub.gui.entrees.JengaPanel import JengaPanel
-from src.gamegrub.gui.entrees.MonopolyPanel import MonopolyPanel
-from src.gamegrub.gui.entrees.YahtzeePanel import YahtzeePanel
-from src.gamegrub.data.drinks.Drink import Drink
-from src.gamegrub.gui.drinks.CandyPanel import CandyPanel
-from src.gamegrub.gui.drinks.CraniumPanel import CraniumPanel
-from src.gamegrub.gui.drinks.SorryPanel import SorryPanel
 from src.gamegrub.gui.ComboPanel import ComboPanel
 from src.gamegrub.data.combo.Combo import Combo
 from src.gamegrub.gui.PanelFactory import PanelFactory
@@ -81,7 +69,6 @@ class MenuPanel(tk.Frame):
                                  self.load_combo_panel(x, c))
         combo_button.grid(row=i, column=3, padx=2, pady=2, sticky="NSEW")
 
-
     def load_item_panel(self, text: str, item: Item) -> None:
         """Loads the item in their own panel.
 
@@ -100,6 +87,7 @@ class MenuPanel(tk.Frame):
 
         Args:
             text: str of combo button.
+            combo: combo to load
         """
         print(text)
         if text == "Custom Combo":

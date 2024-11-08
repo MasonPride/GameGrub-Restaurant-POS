@@ -6,12 +6,16 @@ Author: Mason Pride
 Version: 0.1
 """
 import tkinter as tk
+from tkinter import messagebox
 from tkinter.ttk import Treeview, Scrollbar
 from typing import Dict
 from src.gamegrub.data.Item import Item
-from src.gamegrub.data.sides.Side import Side
-from src.gamegrub.gui.sides.SidePanel import SidePanel
 from src.gamegrub.gui.PanelFactory import PanelFactory
+from src.gamegrub.gui.SelectionDialog import SelectionDialog
+from cc410.register.CardReader import CardReader
+from cc410.register.CardTransactionResult import CardTransactionResult
+from src.gamegrub.gui.CashDrawerPanel import CashDrawerPanel
+from cc410.register.ReceiptPrinter import ReceiptPrinter
 
 
 class OrderPanel(tk.Frame):
@@ -95,6 +99,29 @@ class OrderPanel(tk.Frame):
                 self.__order_list.delete(node)
         elif text == "new":
             pass
+        elif text == "checkout":
+            dialog = SelectionDialog(self.__master,
+                                     title="Checkout",
+                                     message="Cash or Credit/Debit?",
+                                     options=["Cash",
+                                     "Credit/Debit",
+                                     "Cancel"])
+            if dialog.result == "Credit/Debit":
+                reader: CardReader = CardReader()
+                result: CardTransactionResult = reader.run_card()
+                if result == CardTransactionResult.APPROVED:
+                    messagebox.showinfo("Success", str(result))
+                    receipt = ReceiptPrinter()
+                    receipt.start_receipt()
+                    receipt.print_line("Order#: " +
+                                       str(self.__order_num.cget("text")))
+                    for item_id, value in self.__items.items():
+                        receipt.print_line(str(value) +
+                        " $" + str(value.price))
+                else:
+                    messagebox.showinfo("Error", str(result))
+            elif dialog.result == "Cash":
+                self.__master.load_panel(CashDrawerPanel(self.__master))
 
     def save_item(self, item: Item) -> None:
         """Save item method.
