@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}Menu{% endblock %}
+
+{% block content %}
+
+<h1 class="menu-title">Menu</h1>
+
+<h2 class="item-heading">Entrees</h2>
+<ul class="menu-list">
+{% for entree in menu.entrees() %}
+        <div class="menu-item">
+            <h5>{{entree}}</h5>
+            <p>${{entree.price}}</p>
+            <p>{{entree.calories}} calories</p>
+        </div>
+{% endfor %}
+</ul>
+
+<h2 class="item-heading">Sides</h2>
+<ul class="menu-list">
+{% for side in menu.sides() %}
+        <div class="menu-item">
+            <h5>{{side}}</h5>
+            <p>${{side.price}}</p>
+            <p>{{side.calories}} calories</p>
+        </div>
+{% endfor %}
+</ul>
+
+<h2 class="item-heading">Drinks</h2>
+<ul class="menu-list">
+{% for drink in menu.drinks() %}
+        <div class="menu-item">
+            <h5>{{drink}}</h5>
+            <p>${{drink.price}}</p>
+            <p>{{drink.calories}} calories</p>
+        </div>
+{% endfor %}
+</ul>
+
+<h2 class=item-heading>Combos</h2>
+<p><i>Any entree, sides, and drink may be combined for a ${{discount}} discount!</i><p>
+<ul class="menu-list">
+{% for combo in menu.combos() %}
+        <div class="menu-item">
+            <h5>{{combo.name}}</h5>
+            <p>{{combo.entree}}</p>
+            <p>{{combo.side}}</p>
+            <p>{{combo.drink}}</p>
+            <p>${{combo.price}}</p>
+            <p>{{combo.calories}} calories</p>
+        </div>
+{% endfor %}
+</ul>
+    
+{% endblock %}

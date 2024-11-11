@@ -12,5 +12,8 @@ Version: 0.1
 
 import sys
 from src.gamegrub.Main import Main
+from src.gamegrub.Web import Web
 print("In /src/__main__.py")
 Main.main(sys.argv)
+app = Web.main(sys.argv)
+app.run()
