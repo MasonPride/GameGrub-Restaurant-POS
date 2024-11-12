@@ -11,7 +11,7 @@
 {% for entree in menu.entrees() %}
         <div class="menu-item">
             <h5>{{entree}}</h5>
-            <p>${{entree.price}}</p>
+            <p>{{ "${:,.2f}".format(entree.price) }}</p>
             <p>{{entree.calories}} calories</p>
         </div>
 {% endfor %}
@@ -22,7 +22,7 @@
 {% for side in menu.sides() %}
         <div class="menu-item">
             <h5>{{side}}</h5>
-            <p>${{side.price}}</p>
+            <p>{{ "${:,.2f}".format(side.price) }}</p>
             <p>{{side.calories}} calories</p>
         </div>
 {% endfor %}
@@ -33,14 +33,14 @@
 {% for drink in menu.drinks() %}
         <div class="menu-item">
             <h5>{{drink}}</h5>
-            <p>${{drink.price}}</p>
+            <p>{{ "${:,.2f}".format(drink.price) }}</p>
             <p>{{drink.calories}} calories</p>
         </div>
 {% endfor %}
 </ul>
 
 <h2 class=item-heading>Combos</h2>
-<p><i>Any entree, sides, and drink may be combined for a ${{discount}} discount!</i><p>
+<p><i>Any entree, sides, and drink may be combined for a {{"${:,.2f}".format(discount)}} discount!</i><p>
 <ul class="menu-list">
 {% for combo in menu.combos() %}
         <div class="menu-item">
@@ -48,7 +48,7 @@
             <p>{{combo.entree}}</p>
             <p>{{combo.side}}</p>
             <p>{{combo.drink}}</p>
-            <p>${{combo.price}}</p>
+            <p>{{ "${:,.2f}".format(combo.price) }}</p>
             <p>{{combo.calories}} calories</p>
         </div>
 {% endfor %}

@@ -146,7 +146,7 @@ class Combo(Item):
         if (self.__entree is not None and
                 self.__drink is not None and
                 self.__side is not None):
-            return total + (total * self.__class__.get_discount())
+            return total - self.__class__.get_discount()
         else:
             return total
 
