@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block title %}Advanced Search{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    <div class="form-row">
+        <div class="col form-group">
+            <legend>
+                Search by Keywords
+            </legend>
+            <input type="text" class="form-control" id="keyword" name="keyword" placeholder="Enter search terms..." value="{{keyword}}">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col form-group">
+            <fieldset>
+                <legend>
+                    Item Type
+                </legend>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="entree" name="entree" {{ "checked" if entree else ""}}>
+                    <label class="form-check-label" for="entree">Entree</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="drink" name="drink" {{ "checked" if drink else ""}}>
+                    <label class="form-check-label" for="drink">Drink</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="side" name="side" {{ "checked" if side else ""}}>
+                    <label class="form-check-label" for="side">Side</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="combo" name="combo" {{ "checked" if combo else ""}}>
+                    <label class="form-check-label" for="combo">Combo</label>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col form-group">
+            <fieldset>
+                <legend>
+                    Price Range
+                </legend>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="number" class="form-control" id="pricemin" name="pricemin" placeholder="min" step="0.1" min="0" max="25" value="{{ pricemin }}">
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" id="pricemax" name="pricemax" placeholder="max" step="0.1" min="0" max="25" value="{{ pricemax }}">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col form-group">
+            <fieldset>
+                <legend>
+                    Calorie Range
+                </legend>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="number" class="form-control" id="caloriesmin" name="caloriesmin" placeholder="min" step="10" min="0" max="5000" value="{{ caloriesmin }}">
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" id="caloriesmax" name="caloriesmax" placeholder="max" step="10" min="0" max="5000" value="{{ caloriesmax }}">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>
+{% if menu %}
+<h1>Search Results</h1>
+<p> You searched for {{ text }} </p>
+
+<ul>
+    {% for item in menu %}
+    <li>
+        <div class="details">
+            <h3 class="title">{{ item.name }}</h3>
+            <div class="mpaa">{{ item.price }}</div>
+            <div class="mpaa">{{ item.calories }}</div>
+        </div>
+    </li>
+{% endfor %}
+</ul>
+
+{% endif %}
+{% endblock %}

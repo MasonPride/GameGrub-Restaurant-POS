@@ -18,7 +18,11 @@ from src.gamegrub.data.sides.Catan import CatanSkewers
 from src.gamegrub.data.sides.Dice import PotatoDice
 from src.gamegrub.data.sides.Risk import RiskBites
 from src.gamegrub.data.combo.ComboBuilder import ComboBuilder
-from typing import List
+from src.gamegrub.data.entrees.Entree import Entree
+from src.gamegrub.data.drinks.Drink import Drink
+from src.gamegrub.data.sides.Side import Side
+from src.gamegrub.data.combo.Combo import Combo
+from typing import List, Iterable
 
 
 class Menu():
@@ -138,15 +142,85 @@ class Menu():
         combos.append(the_winner)
         return combos
 
-    def fullmenu(self) -> List[Item]:
+    @staticmethod
+    def full_menu() -> List[Item]:
         """Represents full menu.
 
         Returns:
             List of items representing the whole menu.
         """
-        entrees = self.entrees()
-        drinks = self.drinks()
-        sides = self.sides()
-        combos = self.combos()
+        entrees = Menu.entrees()
+        drinks = Menu.drinks()
+        sides = Menu.sides()
+        combos = Menu.combos()
         full_menu = entrees + drinks + sides + combos
         return full_menu
+
+    @staticmethod
+    def filter_keywords(items: Iterable[Item],
+                        keywords: str) -> Iterable[Item]:
+        """Filters by keyword."""
+        if keywords is None or len(keywords) == 0:
+            return items
+        output: Iterable[Item] = list()
+        for keyword in keywords.split(" "):
+            keyword = keyword.lower()
+            for item in items:
+                if keyword in str(item.name).lower():
+                    if item not in output:
+                        output.append(item)
+        return output
+
+    @staticmethod
+    def filter_type(items: Iterable[Item], entree: bool,
+                    side: bool, drink: bool, combo: bool) -> Iterable[Item]:
+        """Filters by item type."""
+        output: Iterable[Item] = list()
+        for item in items:
+            if entree and isinstance(item, Entree):
+                output.append(item)
+            elif side and isinstance(item, Side):
+                output.append(item)
+            elif drink and isinstance(item, Drink):
+                output.append(item)
+            elif combo and isinstance(item, Combo):
+                output.append(item)
+        return output
+
+    @staticmethod
+    def filter_price(items: Iterable[Item],
+                     pricemin: float,
+                     pricemax: float) -> Iterable[Item]:
+        """Filters by price."""
+        if pricemin < 0 and pricemax < 0:
+            return items
+        if pricemax < 0:
+            pricemax = float("inf")
+        output: Iterable[Item] = list()
+        for item in items:
+            try:
+                price = float(item.price)
+                if price >= pricemin and price <= pricemax:
+                    output.append(item)
+            except Exception:
+                continue
+        return output
+
+    @staticmethod
+    def filter_calories(items: Iterable[Item],
+                        coloriesmin: int,
+                        caloriesmax: int) -> Iterable[Item]:
+        """Filters by calories."""
+        if coloriesmin < 0 and caloriesmax < 0:
+            return items
+        if caloriesmax < 0:
+            caloriesmax = float("inf")
+        output: Iterable[Item] = list()
+        for item in items:
+            try:
+                calories = int(item.calories)
+                if calories >= coloriesmin and calories <= caloriesmax:
+                    output.append(item)
+            except Exception:
+                continue
+        return output
