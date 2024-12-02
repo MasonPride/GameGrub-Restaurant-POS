@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Custom Menu Items{% endblock %}
+
+{% block content %}
+
+<h1 class="menu-title">Custom Menu</h1>
+
+<h2 class="item-heading">Custom Items</h2>
+<ul class="menu-list">
+{% for item in items %}
+        <div class="menu-item">
+            <h5>{{item.name}}</h5>
+            <p>{{ "${:,.2f}".format(item.price) }}</p>
+            <p>{{item.calories}} calories</p>
+            <a href="/custom/{{ loop.index0 }}/">Details</a>
+        </div>
+{% endfor %}
+<a href="/custom/new/">New Item</a>
+</ul>
+    
+{% endblock %}

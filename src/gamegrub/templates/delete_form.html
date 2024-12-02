@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block name %}Delete{{ item.name }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ item.name }}</h1>
+
+<div class="alert alert-danger" role="alert">
+    Are you sure your want to delete this custom item?
+</div>
+
+
+<h5>{{item.name}}</h5>
+<p>{{ "${:,.2f}".format(item.price) }}</p>
+<p>{{item.calories}} calories</p>
+            
+
+
+<form action="/custom/{{ id }}/delete/", method="POST">
+    <a class="btn btn-secondary" role="button" href="/custom/{{ id }}">Cancel</a>
+    <button class="btn btn-danger" type="submit">
+        Delete
+    </button>
+</form>
+
+{% endblock %}

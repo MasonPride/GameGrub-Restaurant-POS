@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ item.name }}{% endblock %}
+
+{% block content %}
+
+
+<h5>{{item.name}}</h5>
+<p>{{ "${:,.2f}".format(item.price) }}</p>
+<p>{{item.calories}} calories</p>
+
+
+<a class="btn btn-primary" role="button" href="/custom/{{ id }}/edit">Edit</a>
+<a class="btn btn-danger" role="button" href="/custom/{{ id }}/delete">Delete</a>
+<a class="btn btn-secondary" role="button" href="/custom/">Back</a>
+
+{% endblock %}

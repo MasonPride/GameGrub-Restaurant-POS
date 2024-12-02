@@ -7,6 +7,7 @@ Version: 0.1
 """
 from flask import Flask
 from src.gamegrub.web.MenuController import MenuController
+from src.gamegrub.web.CustomController import CustomController
 from typing import List
 
 
@@ -18,4 +19,6 @@ class Web:
         """Main method."""
         app = Flask(__name__)
         MenuController.register(app)
+        CustomController.register(app)
+        app.config['WTF_CSRF_ENABLED'] = False
         return app
