@@ -5,6 +5,7 @@ Version: 0.1
 """
 from typing import Iterator, Iterable, List, Optional
 from src.gamegrub.data.custom.CustomItem import CustomItem
+import json
 
 
 class CustomItemList(Iterable[CustomItem]):
@@ -26,6 +27,14 @@ class CustomItemList(Iterable[CustomItem]):
     def load(self) -> None:
         """Loads the empty list."""
         self.__items: List[CustomItem] = list()
+        """Load data."""
+        with open('custom_menu_items.json') as file:
+            array = json.load(file)
+            self.__items: List[CustomItem] = list()
+            for item in array:
+                custom_item = CustomItem()
+                custom_item.load(**item)
+                self.__items.append(custom_item)
 
     def add_item(self, item: CustomItem) -> None:
         """Adds custom item to list."""
@@ -50,3 +59,16 @@ class CustomItemList(Iterable[CustomItem]):
     def __delitem__(self, i: int) -> None:
         """Delete a single custom item."""
         del self.__items[i]
+
+    def save(self) -> None:
+        """Saves custom item list content."""
+        array = list()
+        for custom_item in CustomItemList():
+            item_dict = dict()
+            item_dict['Name'] = str(custom_item.name)
+            item_dict['Price'] = float(custom_item.price)
+            item_dict['Calories'] = int(custom_item.calories)
+            array.append(item_dict)
+
+        with open("custom_menu_items.json", "w") as file:
+                json.dump(array, file, indent=4)

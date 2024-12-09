@@ -20,6 +20,12 @@ class CustomItem(Item):
         self.__price = price
         self.__calories = calories
 
+    def load(self, **kwargs) -> None:
+        """Load a movie from JSON."""
+        self.__name: str = kwargs['Name']
+        self.__price: str = kwargs['Price']
+        self.__calories: str = kwargs['Calories']
+
     @property
     def name(self) -> str:
         """Getter method for name."""
@@ -38,7 +44,7 @@ class CustomItem(Item):
     @price.setter
     def price(self, value: float) -> None:
         """Setter method for price."""
-        self.__price = value
+        self.__price = round(value, 1)
 
     @property
     def calories(self) -> int:
@@ -54,3 +60,5 @@ class CustomItem(Item):
     def instructions(self) -> List[str]:
         """Instructions getter."""
         return list()
+
+    

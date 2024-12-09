@@ -5,7 +5,9 @@
 {% block content %}
 
 <h1 class="menu-title">Custom Menu</h1>
-
+<form action="/custom/save/" method="POST">
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
 <h2 class="item-heading">Custom Items</h2>
 <ul class="menu-list">
 {% for item in items %}

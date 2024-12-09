@@ -8,19 +8,40 @@
     <div class="form-row">
         <div class="col form-group">
             {{ form.name.label }}
-            {{ form.name(class_="form-control") }}
+            {% if form.name.errors %}
+                {{ form.name(class_="form-control is-invalid") }}
+                {% for error in form.name.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            {% else %}
+                {{ form.name(class_="form-control") }}
+            {% endif %}
         </div>
     </div>
     <div class="form-row">
         <div class="col form-group">
             {{ form.price.label }}
-            {{ form.price(class_="form-control") }}
+            {% if form.price.errors %}
+                {{ form.price(class_="form-control is-invalid") }}
+                {% for error in form.price.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            {% else %}
+                {{ form.price(class_="form-control") }}
+            {% endif %}
         </div>
     </div>
     <div class="form-row">
         <div class="col form-group">
             {{ form.calories.label }}
-            {{ form.calories(class_="form-control") }}
+            {% if form.calories.errors %}
+                {{ form.calories(class_="form-control is-invalid") }}
+                {% for error in form.calories.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            {% else %}
+                {{ form.calories(class_="form-control") }}
+            {% endif %}
         </div>
     </div>
     <button type="submit" class="btn btn-primary">

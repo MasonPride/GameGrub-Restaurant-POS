@@ -41,11 +41,20 @@ class CustomController(FlaskView):
     def edit(self, id: int):
         """Edit post."""
         form = CustomItemForm()
+        if not form.validate_on_submit():
+            return render_template("edit_form.html", form=form, id=id)
         items = CustomItemList()
         item = CustomItem()
         item.name = form.name.data
-        item.price = form.price.data
-        item.calories = form.calories.data
+        try:
+            item.price = float(form.price.data)
+        except Exception:
+            item.price = None
+        try:
+            item.calories = int(
+                form.calories.data)
+        except Exception:
+            item.calories = None
 
         items[int(id)] = item
         return redirect('/custom/')
@@ -75,10 +84,24 @@ class CustomController(FlaskView):
     def add_item(self):
         """Adds item to custom item menu."""
         form = CustomItemForm()
+        if not form.validate_on_submit():
+            return render_template("edit_form.html", form=form, id=id)
         items = CustomItemList()
         item = CustomItem()
         item.name = form.name.data
-        item.price = form.price.data
-        item.calories = form.calories.data
+        try:
+            item.price = float(form.price.data)
+        except Exception:
+            item.price = None
+        try:
+            item.calories = int(
+                form.calories.data)
+        except Exception:
+            item.calories = None
         items.add_item(item)
+        return redirect('/custom/')
+
+    @route('/save/', methods=['POST'])
+    def save(self):
+        CustomItemList().save()
         return redirect('/custom/')
